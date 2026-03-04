@@ -4,42 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contragence Spatiale</title>
-    <style>
-        /* 1. Déclaration de votre police locale */
-        @font-face {
-            font-family: 'PubliFluor';
-            src: url('PubliFluorNormale.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* 2. Mise en page centrée et fond rose fluo */
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* Prend toute la hauteur de l'écran */
-            display: flex;
-            justify-content: center; /* Centre horizontalement */
-            align-items: center; /* Centre verticalement */
-            
-            /* Le Rose Fluo intense (Code Hex : #FF00FF) */
-            background-color: #FF00FF; 
-            font-family: 'PubliFluor', sans-serif; /* Application de la police */
-        }
-
-        /* 3. Le texte : Noir intense et très gros */
-        h1 {
-            color: #000000; /* Noir pur */
-            font-size: 15vw; /* Taille responsive : 15% de la largeur de l'écran */
-            margin: 0;
-            text-transform: uppercase; /* Optionnel : force les majuscules */
-            line-height: 1; /* Resserre les lignes si le texte passe à la ligne */
-        }
-    </style>
+    
+    <!-- LIEN VERS TON FICHIER CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>contragence spatiale</h1>
+    <!-- MENU FIXE EN HAUT -->
+    <header>
+        <a href="#" class="logo">Contragence Spatiale</a>
+        <nav>
+            <ul>
+                <li><a href="#manifeste">Manifeste</a></li>
+                <li><a href="#cestquoi">C'est quoi</a></li>
+                <li><a href="#cestqui">C'est qui</a></li>
+                <li><a href="#projets-editoriaux">Projets éditoriaux</a></li>
+                <li><a href="#projet-politique">Projet politique</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ZONE PRINCIPALE (HERO) -->
+    <div class="hero">
+        <!-- Conteneur pour centrer le tout verticalement et horizontalement -->
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;">
+            
+            <!-- TITRE N1 (PubliFluor - Très gros) -->
+            <h1 class="titre-n1">
+                contragence<br>spatiale
+            </h1>
+
+            <!-- EMPHASE (Chaloupée - Phrase sous le titre) -->
+            <p class="emphase">
+                vous souhaite de beaux rêves
+            </p>
+
+        </div>
+    </div>
+
+    <!-- SECTION 1 : MANIFESTE -->
+    <section id="manifeste">
+        <h2 class="titre-n2">Manifeste</h2>
+        <p class="texte-normal">
+            [Ton texte ici. Remplace ce paragraphe par ton vrai manifeste. La police Garabosse sera utilisée automatiquement avec les ligatures activées.]
+        </p>
+        <p class="texte-normal">
+            Le ciel n'est pas une limite, c'est un chantier.
+        </p>
+    </section>
+
+    <!-- SECTION 2 : C'EST QUOI -->
+    <section id="cestquoi">
+        <h2 class="titre-n2">C'est quoi</h2>
+        <p class="texte-normal">
+            [Explication de la structure. Est-ce un collectif ? Une agence ? Un vaisseau ?]
+        </p>
+        <p class="texte-normal">
+            Une entité fluide opérant dans la stratosphère des idées.
+        </p>
+    </section>
+
+    <!-- SECTION 3 : C'EST QUI -->
+    <section id="cestqui">
+        <h2 class="titre-n2">C'est qui</h2>
+        <p class="texte-normal">
+            [Présentation de l'équipe, des fondateurs, des complices.]
+        </p>
+        <p class="texte-normal">
+            Nous sommes les architectes de l'orbite basse.
+        </p>
+    </section>
+
+    <!-- SECTION 4 : PROJETS ÉDITORIAUX -->
+    <section id="projets-editoriaux">
+        <h2 class="titre-n2">Nos projets éditoriaux</h2>
+        <p class="texte-normal">
+            [Détail de vos publications, revues, zines, contenus.]
+        </p>
+        <p class="texte-normal">
+            Parce que c'est pour ça qu'on est là : diffuser la parole.
+        </p>
+    </section>
+
+    <!-- SECTION 5 : PROJET POLITIQUE -->
+    <section id="projet-politique">
+        <h2 class="titre-n2">Le projet politique</h2>
+        <p class="texte-normal">
+            [Votre engagement, vos combats, votre vision de la société.]
+        </p>
+        <p class="texte-normal">
+            Parce que c'est aussi pour ça qu'on est là : transformer le réel.
+        </p>
+    </section>
+
+    <!-- SECTION 6 : CONTACT -->
+    <section id="contact">
+        <h2 class="titre-n2">Contact</h2>
+        <p class="texte-normal">
+            Une idée ? Une envie de collaber ? Un signal à envoyer ?
+        </p>
+        <p class="texte-normal">
+            <strong>Email :</strong> contact@contragence-spatiale.xyz<br>
+            <strong>Signal / Tel :</strong> +41 XX XXX XX XX
+        </p>
+    </section>
 
 </body>
 </html>
