@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contragence Spatiale <br>
-        vous souhaite de beaux rêves</title>
+    <title>Contragence Spatiale</title>
     <style>
-       
+        /* 1. Déclaration de votre police locale */
         @font-face {
-            font-family: 'PubliFluorNormale';
-            src: url('PubliFluorNormale.otf') format('otf'),
-                 url('PubliFluorNormale.otf') format('otf');
+            font-family: 'PubliFluor';
+            src: url('PubliFluorNormale.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
-        */
 
+        /* 2. Mise en page centrée et fond rose fluo */
         body {
             margin: 0;
             padding: 0;
-            background-color: #fa25cb; /* Rose fluo */
             height: 100vh; /* Prend toute la hauteur de l'écran */
             display: flex;
             justify-content: center; /* Centre horizontalement */
             align-items: center; /* Centre verticalement */
-            font-family: 'Publifluor', sans-serif; /* Utilise Publifluor en priorité */
+            
+            /* Le Rose Fluo intense (Code Hex : #FF00FF) */
+            background-color: #FF00FF; 
+            font-family: 'PubliFluor', sans-serif; /* Application de la police */
         }
 
+        /* 3. Le texte : Noir intense et très gros */
         h1 {
-            font-size: 3rem; /* Taille du texte */
-            color: #333; /* Couleur du texte (gris foncé pour contraste) */
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
+            color: #000000; /* Noir pur */
+            font-size: 15vw; /* Taille responsive : 15% de la largeur de l'écran */
+            margin: 0;
+            text-transform: uppercase; /* Optionnel : force les majuscules */
+            line-height: 1; /* Resserre les lignes si le texte passe à la ligne */
         }
     </style>
 </head>
