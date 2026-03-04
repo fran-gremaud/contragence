@@ -1,0 +1,221 @@
+/* =========================================
+   1. DÉCLARATION DES POLICES
+   ========================================= */
+
+/* Police 1 : Titres (N1 & N2) */
+@font-face {
+    font-family: 'PubliFluor';
+    src: url('PubliFluorNormale.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Police 2 : Emphase (Chaloupée) */
+@font-face {
+    font-family: 'Chaloupee';
+    src: url('Chaloupee-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Police 3 : Texte normal (Garabosse) */
+@font-face {
+    font-family: 'Garabosse';
+    src: url('Garabosse-Perle.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================
+   2. VARIABLES & RESET
+   ========================================= */
+:root {
+    --rose-fluo: #FF00FF;
+    --noir-intense: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   3. STYLE GLOBAL & LIGATURES
+   ========================================= */
+body {
+    background-color: var(--rose-fluo);
+    color: var(--noir-intense);
+    /* Police par défaut : Garabosse pour le texte */
+    font-family: 'Garabosse', sans-serif;
+    line-height: 1.6;
+    font-size: 18px; /* Taille de base confortable */
+    
+    /* ACTIVATION TOTALE DES LIGATURES PARTOUT */
+    font-variant-ligatures: common-ligatures contextual discretionary-ligatures historical-ligatures;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1, "hlig" 1;
+}
+
+/* =========================================
+   4. CLASSES DE TYPOGRAPHIE
+   ========================================= */
+
+/* N1 : TITRE DU SITE (Très gros, PubliFluor) */
+.titre-n1 {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 15vw; /* S'adapte à la largeur de l'écran */
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: normal;
+    /* Ligatures forcées */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1;
+}
+
+/* N2 : TITRES DE SECTIONS (Gros, PubliFluor) */
+.titre-n2 {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 4rem; /* Très grand mais lisible */
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--noir-intense);
+    display: inline-block;
+    font-weight: normal;
+    /* Ligatures forcées */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1;
+}
+
+/* EMPHASE (Chaloupée) */
+.emphase {
+    font-family: 'Chaloupee', sans-serif;
+    font-size: 1.4em; /* Plus grand que le texte normal */
+    font-weight: normal;
+    /* Ligatures forcées */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1;
+}
+
+/* TEXTE NORMAL (Garabosse) - Classe utilitaire si besoin */
+.texte-normal {
+    font-family: 'Garabosse', sans-serif;
+    font-size: 1em;
+    margin-bottom: 1.5rem;
+    max-width: 800px; /* Limite la largeur pour la lisibilité */
+}
+
+/* =========================================
+   5. STRUCTURE (HEADER, HERO, SECTIONS)
+   ========================================= */
+
+/* Header Fixe */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--rose-fluo);
+    border-bottom: 4px solid var(--noir-intense);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--noir-intense);
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--noir-intense);
+    font-family: 'PubliFluor', sans-serif; /* Menu en PubliFluor aussi */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 0.2rem 0.5rem;
+}
+
+nav a:hover {
+    background-color: var(--noir-intense);
+    color: var(--rose-fluo);
+}
+
+/* Hero Section (Titre N1) */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+/* Sections */
+section {
+    min-height: 80vh;
+    padding: 6rem 2rem 4rem 2rem;
+    border-top: 2px solid var(--noir-intense);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Paragraphes par défaut dans les sections */
+section p {
+    font-size: 1.5rem; /* Taille confortable pour Garabosse */
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   6. MOBILE (RESPONSIVE)
+   ========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .titre-n1 {
+        font-size: 18vw; /* Encore plus gros sur mobile */
+    }
+
+    .titre-n2 {
+        font-size: 2.5rem;
+    }
+
+    section p {
+        font-size: 1.2rem;
+    }
+    
+    .emphase {
+        font-size: 1.2em;
+    }
+}
