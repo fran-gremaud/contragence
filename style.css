@@ -30,7 +30,7 @@
 }
 
 /* =========================================
-   2. VARIABLES (RETOUR AU ROSE UNIQUE)
+   2. VARIABLES
    ========================================= */
 :root {
     --rose-fluo: #FF00FF;
@@ -51,7 +51,7 @@ html {
    3. STYLE GLOBAL
    ========================================= */
 body {
-    background-color: var(--rose-fluo); /* FOND ROSE PARTOUT */
+    background-color: var(--rose-fluo);
     color: var(--noir-intense);
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
@@ -66,23 +66,24 @@ body {
    4. TYPOGRAPHIE
    ========================================= */
 
-/* N1 : TITRE DU SITE */
+/* N1 : TITRE DU SITE (Reste en MAJUSCULES via le HTML ou on peut forcer ici) */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 15vw;
     line-height: 0.9;
-    text-transform: uppercase;
+    text-transform: uppercase; 
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS (Sans la bordure noire en bas) */
+/* N2 : TITRES DE SECTIONS (AVEC BARRE NOIRE) */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 4rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
-    /* border-bottom supprimé */
+    /* RETOUR DE LA BARRE NOIRE */
+    border-bottom: 4px solid var(--noir-intense);
     display: inline-block;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
@@ -112,14 +113,13 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--noir-intense); /* Fond noir */
+    background-color: var(--noir-intense);
     padding: 1rem 2rem;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    /* Bordure noire supprimée en bas car fond déjà noir */
 }
 
 /* LOGO : PubliFluor */
@@ -140,21 +140,21 @@ nav ul {
     flex-wrap: wrap;
 }
 
-/* MENU : Garabosse (Forcé) */
+/* MENU : Garabosse en MINUSCULES */
 nav a {
-    font-family: 'Garabosse', sans-serif !important; /* !important pour être sûr */
+    font-family: 'Garabosse', sans-serif !important;
     text-decoration: none;
     color: #FFFFFF;
-    text-transform: uppercase;
+    text-transform: lowercase; /* FORCE LES MINUSCULES */
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem; /* Un tout petit peu plus grand pour la lisibilité */
     transition: color 0.3s, text-decoration 0.3s;
     padding: 0.2rem 0.5rem;
     letter-spacing: 0.5px;
 }
 
 nav a:hover {
-    color: var(--rose-fluo); /* Devient rose au survol */
+    color: var(--rose-fluo);
     text-decoration: underline;
 }
 
@@ -173,12 +173,11 @@ nav a:hover {
 section {
     min-height: 80vh;
     padding: 6rem 2rem 4rem 2rem;
-    /* border-top supprimé (plus de trait noir) */
+    /* Plus de bordure sur la section elle-même, c'est le titre qui a la barre */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Fond rose fluo par défaut pour toutes */
-    background-color: var(--rose-fluo); 
+    background-color: var(--rose-fluo);
 }
 
 section p {
@@ -220,230 +219,6 @@ section p {
     }
     
     nav a {
-        font-size: 1.1rem;
-    }
-}/* =========================================
-   1. DÉCLARATION DES POLICES
-   ========================================= */
-
-/* Police 1 : Titres & Logo - PubliFluor */
-@font-face {
-    font-family: 'PubliFluor';
-    src: url('PubliFluorNormale.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Police 2 : Emphase - Chaloupée */
-@font-face {
-    font-family: 'Chaloupee';
-    src: url('Chaloupee-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Police 3 : Texte & Menu - Garabosse */
-@font-face {
-    font-family: 'Garabosse';
-    src: url('Garabosse-Perle.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* =========================================
-   2. VARIABLES (RETOUR AU ROSE UNIQUE)
-   ========================================= */
-:root {
-    --rose-fluo: #FF00FF;
-    --noir-intense: #000000;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* =========================================
-   3. STYLE GLOBAL
-   ========================================= */
-body {
-    background-color: var(--rose-fluo); /* FOND ROSE PARTOUT */
-    color: var(--noir-intense);
-    font-family: 'Garabosse', sans-serif;
-    line-height: 1.6;
-    font-size: 18px;
-    
-    /* Ligatures : Standards et Contextuelles */
-    font-variant-ligatures: common-ligatures contextual;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* =========================================
-   4. TYPOGRAPHIE
-   ========================================= */
-
-/* N1 : TITRE DU SITE */
-.titre-n1 {
-    font-family: 'PubliFluor', sans-serif;
-    font-size: 15vw;
-    line-height: 0.9;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* N2 : TITRES DE SECTIONS (Sans la bordure noire en bas) */
-.titre-n2 {
-    font-family: 'PubliFluor', sans-serif;
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    /* border-bottom supprimé */
-    display: inline-block;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* EMPHASE */
-.emphase {
-    font-family: 'Chaloupee', sans-serif;
-    font-size: 1.4em;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* TEXTE NORMAL */
-.texte-normal {
-    font-family: 'Garabosse', sans-serif;
-    font-size: 1em;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-}
-
-/* =========================================
-   5. HEADER & MENU
-   ========================================= */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--noir-intense); /* Fond noir */
-    padding: 1rem 2rem;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    /* Bordure noire supprimée en bas car fond déjà noir */
-}
-
-/* LOGO : PubliFluor */
-.logo {
-    font-family: 'PubliFluor', sans-serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #FFFFFF;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-/* MENU : Garabosse (Forcé) */
-nav a {
-    font-family: 'Garabosse', sans-serif !important; /* !important pour être sûr */
-    text-decoration: none;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: color 0.3s, text-decoration 0.3s;
-    padding: 0.2rem 0.5rem;
-    letter-spacing: 0.5px;
-}
-
-nav a:hover {
-    color: var(--rose-fluo); /* Devient rose au survol */
-    text-decoration: underline;
-}
-
-/* =========================================
-   6. HERO & SECTIONS
-   ========================================= */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 80px;
-}
-
-section {
-    min-height: 80vh;
-    padding: 6rem 2rem 4rem 2rem;
-    /* border-top supprimé (plus de trait noir) */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Fond rose fluo par défaut pour toutes */
-    background-color: var(--rose-fluo); 
-}
-
-section p {
-    font-size: 1.5rem;
-    max-width: 800px;
-    margin-bottom: 1.5rem;
-}
-
-/* =========================================
-   7. MOBILE
-   ========================================= */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .titre-n1 {
-        font-size: 18vw;
-    }
-
-    .titre-n2 {
-        font-size: 2.5rem;
-    }
-
-    section p {
         font-size: 1.2rem;
-    }
-    
-    .emphase {
-        font-size: 1.2em;
-    }
-    
-    nav a {
-        font-size: 1.1rem;
     }
 }
