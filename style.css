@@ -2,7 +2,7 @@
    1. DÉCLARATION DES POLICES
    ========================================= */
 
-/* Police 1 : Titres (N1 & N2) */
+/* Police 1 : Titres (N1 & N2) - PubliFluor */
 @font-face {
     font-family: 'PubliFluor';
     src: url('PubliFluorNormale.otf') format('opentype');
@@ -11,7 +11,7 @@
     font-display: swap;
 }
 
-/* Police 2 : Emphase (Chaloupée) */
+/* Police 2 : Emphase - Chaloupée */
 @font-face {
     font-family: 'Chaloupee';
     src: url('Chaloupee-Regular.woff2') format('woff2');
@@ -20,7 +20,7 @@
     font-display: swap;
 }
 
-/* Police 3 : Texte normal (Garabosse) */
+/* Police 3 : Texte normal - Garabosse */
 @font-face {
     font-family: 'Garabosse';
     src: url('Garabosse-Perle.woff') format('woff');
@@ -48,7 +48,7 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL & LIGATURES
+   3. STYLE GLOBAL & LIGATURES (CORPS DE PAGE)
    ========================================= */
 body {
     background-color: var(--rose-fluo);
@@ -56,11 +56,11 @@ body {
     /* Police par défaut : Garabosse pour le texte */
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    font-size: 18px; /* Taille de base confortable */
+    font-size: 18px;
     
-    /* ACTIVATION TOTALE DES LIGATURES PARTOUT */
-    font-variant-ligatures: common-ligatures contextual discretionary-ligatures historical-ligatures;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1, "hlig" 1;
+    /* LIGATURES : Uniquement Standards et Contextuelles */
+    font-variant-ligatures: common-ligatures contextual;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 /* =========================================
@@ -70,42 +70,42 @@ body {
 /* N1 : TITRE DU SITE (Très gros, PubliFluor) */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
-    font-size: 15vw; /* S'adapte à la largeur de l'écran */
+    font-size: 15vw;
     line-height: 0.9;
     text-transform: uppercase;
     font-weight: normal;
-    /* Ligatures forcées */
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1;
+    /* Ligatures : Standards et Contextuelles */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 /* N2 : TITRES DE SECTIONS (Gros, PubliFluor) */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
-    font-size: 4rem; /* Très grand mais lisible */
+    font-size: 4rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
     border-bottom: 4px solid var(--noir-intense);
     display: inline-block;
     font-weight: normal;
-    /* Ligatures forcées */
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1;
+    /* Ligatures : Standards et Contextuelles */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 /* EMPHASE (Chaloupée) */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
-    font-size: 1.4em; /* Plus grand que le texte normal */
+    font-size: 1.4em;
     font-weight: normal;
-    /* Ligatures forcées */
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "dlig" 1;
+    /* Ligatures : Standards et Contextuelles */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* TEXTE NORMAL (Garabosse) - Classe utilitaire si besoin */
+/* TEXTE NORMAL (Garabosse) - Classe utilitaire */
 .texte-normal {
     font-family: 'Garabosse', sans-serif;
     font-size: 1em;
     margin-bottom: 1.5rem;
-    max-width: 800px; /* Limite la largeur pour la lisibilité */
+    max-width: 800px;
 }
 
 /* =========================================
@@ -135,6 +135,8 @@ header {
     text-decoration: none;
     color: var(--noir-intense);
     font-weight: bold;
+    /* Ligatures pour le logo aussi */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 nav ul {
@@ -147,12 +149,14 @@ nav ul {
 nav a {
     text-decoration: none;
     color: var(--noir-intense);
-    font-family: 'PubliFluor', sans-serif; /* Menu en PubliFluor aussi */
+    font-family: 'PubliFluor', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1rem;
     transition: background-color 0.3s, color 0.3s;
     padding: 0.2rem 0.5rem;
+    /* Ligatures pour le menu */
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 nav a:hover {
@@ -182,7 +186,7 @@ section {
 
 /* Paragraphes par défaut dans les sections */
 section p {
-    font-size: 1.5rem; /* Taille confortable pour Garabosse */
+    font-size: 1.5rem;
     max-width: 800px;
     margin-bottom: 1.5rem;
 }
@@ -204,7 +208,7 @@ section p {
     }
 
     .titre-n1 {
-        font-size: 18vw; /* Encore plus gros sur mobile */
+        font-size: 18vw;
     }
 
     .titre-n2 {
