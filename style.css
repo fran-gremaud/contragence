@@ -30,7 +30,7 @@
 }
 
 /* =========================================
-   2. VARIABLES
+   2. VARIABLES & RESET
    ========================================= */
 :root {
     --rose-fluo: #FF00FF;
@@ -48,14 +48,14 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL (TAILLE AUGMENTÉE)
+   3. STYLE GLOBAL
    ========================================= */
 body {
     background-color: var(--rose-fluo);
     color: var(--noir-intense);
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    font-size: 22px; /* Taille augmentée pour lisibilité */
+    font-size: 22px;
     
     /* Ligatures : Standards et Contextuelles */
     font-variant-ligatures: common-ligatures contextual;
@@ -76,7 +76,7 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS (Alignés à gauche par défaut) */
+/* N2 : TITRES DE SECTIONS (Alignés à gauche) */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 4rem;
@@ -187,7 +187,7 @@ section {
     text-align: left;
 }
 
-/* LE CADRE NOIR UNIQUE (Contient tout le texte et les lunes) */
+/* LE CADRE NOIR UNIQUE */
 .cadre-manifeste {
     background-color: var(--noir-intense);
     color: var(--rose-fluo);
@@ -195,8 +195,8 @@ section {
     padding: 3rem;
     max-width: 900px;
     width: 100%;
-    margin: 2rem auto; /* Centré horizontalement */
-    text-align: center; /* Centre le contenu à l'intérieur du cadre */
+    margin: 2rem auto;
+    text-align: center;
     box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
 }
 
@@ -212,24 +212,9 @@ section {
     margin-bottom: 0;
 }
 
-/* LUNES : Force Noir & Blanc et Police Segoe */
-.lunes-conteneur {
-    font-family: 'Segoe UI Symbol', 'Segoe UI', sans-serif !important;
-    font-size: 4rem;
-    line-height: 1;
-    display: block;
-    margin: 1.5rem 0;
-    
-    /* Force le noir et blanc (marche même si l'emoji est coloré) */
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    color: black;
-}
-
 /* =========================================
    8. AUTRES SECTIONS (RESET)
    ========================================= */
-/* S'assure que les autres sections restent en texte noir simple */
 #cestquoi .texte-normal,
 #cestqui .texte-normal,
 #projets-editoriaux .texte-normal,
@@ -242,34 +227,59 @@ section {
     box-shadow: none;
     margin: 0 0 1.5rem 0;
     text-align: left;
+    max-width: 800px;
+}
+
+.texte-normal {
+    font-family: 'Garabosse', sans-serif;
+    font-size: 1em;
+    margin-bottom: 1.5rem;
 }
 
 /* =========================================
-   GESTION SPÉCIFIQUE DES SVG (LUNES)
+   9. GESTION DES SVG (LUNES) - VERSION FINALE
    ========================================= */
 
-/* Règle de sécurité pour TOUS les SVG du site */
-img[src$=".svg"] {
+/* Règle de base pour tous les SVG */
+img.svg-lune-hero, 
+img.svg-lune-cycle, 
+img.svg-lune-cycle-manifeste, 
+img.svg-lune-manifeste {
     display: block;
     max-width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
-/* 1. LA LUNE SEULE (Hero & Manifeste) */
-.svg-lune-hero, 
-.svg-lune-manifeste {
-    width: 80px !important;       /* Taille fixe petite */
+/* --- LUNES DU HERO (Restent NOIRES sur fond Rose) --- */
+.svg-lune-hero {
+    width: 80px !important;
     max-width: 80px !important;
-    height: auto !important;      /* Garde les proportions */
-    margin: 0 auto 20px auto;     /* Centré + espace en bas */
-    display: block;
+    margin: 0 auto;
+    /* Pas de filtre : le SVG noir reste noir */
 }
 
-/* 2. LE CYCLE LUNAIRE (La longue bande de 1364px de large) */
+/* --- CYCLE LUNAIRE (Dans le Hero - si utilisé) --- */
 .svg-lune-cycle {
-    width: 100% !important;       /* Prend la largeur disponible */
-    max-width: 800px !important;  /* MAIS ne dépasse jamais 800px (ajustable) */
-    height: auto !important;      /* La hauteur se calcule toute seule (env 100px) */
-    margin: 20px auto;            /* Centré + espace haut/bas */
-    display: block;
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 20px auto;
+}
+
+/* --- CYCLE LUNAIRE (Dans le Manifeste) --- */
+/* Le cycle reste tel quel (noir et rose) */
+.svg-lune-cycle-manifeste {
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- LUNE UNIQUE (Dans le Manifeste - Devient ROSE sur fond Noir) --- */
+.svg-lune-manifeste {
+    width: 80px !important;
+    max-width: 80px !important;
+    margin: 2rem auto 0 auto;
+    
+    /* MAGIE : Transforme le NOIR du SVG en ROSE FLUO (#FF00FF) */
+    filter: invert(23%) sepia(96%) saturate(7416%) hue-rotate(286deg) brightness(94%) contrast(117%);
 }
