@@ -237,7 +237,7 @@ section {
 }
 
 /* =========================================
-   9. GESTION DES SVG (LUNES) - VERSION FINALE
+   9. GESTION DES SVG (LUNES) - VERSION PROPRE
    ========================================= */
 
 /* Règle de base pour tous les SVG */
@@ -251,12 +251,12 @@ img.svg-lune-manifeste {
     object-fit: contain;
 }
 
-/* --- LUNES DU HERO (Restent NOIRES sur fond Rose) --- */
+/* --- LUNES DU HERO (Fichier NOIR) --- */
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-    /* Pas de filtre : le SVG noir reste noir */
+    /* Pas de filtre, le fichier est noir nativement */
 }
 
 /* --- CYCLE LUNAIRE (Dans le Hero - si utilisé) --- */
@@ -266,20 +266,18 @@ img.svg-lune-manifeste {
     margin: 20px auto;
 }
 
-/* --- CYCLE LUNAIRE (Dans le Manifeste) --- */
-/* Le cycle reste tel quel (noir et rose) */
+/* --- CYCLE LUNAIRE (Dans le Manifeste - Fichier ROSE) --- */
 .svg-lune-cycle-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
+    /* Pas de filtre, le fichier est rose nativement (#FF00FF) */
 }
 
-/* --- LUNE UNIQUE (Dans le Manifeste - Devient ROSE sur fond Noir) --- */
+/* --- LUNE UNIQUE (Dans le Manifeste - Fichier ROSE) --- */
 .svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
-    
-    /* MAGIE : Transforme le NOIR du SVG en ROSE FLUO (#FF00FF) */
-    filter: invert(23%) sepia(96%) saturate(7416%) hue-rotate(286deg) brightness(94%) contrast(117%);
+    /* Pas de filtre, le fichier est rose nativement (#FF00FF) */
 }
