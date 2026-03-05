@@ -244,85 +244,25 @@ section {
     text-align: left;
 }
 
-/* =========================================
-   9. MOBILE (VERSION EXPÉRIENCE)
-   ========================================= */
-@media (max-width: 768px) {
-    
-    /* HEADER MOBILE : Plein écran au chargement */
-    header {
-        position: relative; /* Prend sa place et pousse le contenu */
-        height: 100vh;
-        padding: 2rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background-color: var(--noir-intense);
-    }
-
-    .logo {
-        font-size: 3rem;
-        margin-bottom: 3rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    nav a {
-        font-size: 1.8rem;
-    }
-
-    /* HEADER RÉTRÉCI AU SCROLL (Classe ajoutée par JS) */
-    header.scrolled {
-        position: fixed;
-        top: 0;
-        height: auto;
-        min-height: 80px;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        background-color: var(--noir-intense);
-    }
-
-    header.scrolled .logo {
-        font-size: 1.5rem;
-        margin-bottom: 0;
-    }
-
-    /* On cache le menu quand c'est rétréci (comme demandé) */
-    header.scrolled nav ul {
-        display: none;
-    }
-
-    /* Ajustements Hero & Titres */
-    .hero {
-        padding-top: 0;
-        min-height: 80vh;
-    }
-
-    .titre-n1 {
-        font-size: 18vw;
-    }
-
-    .titre-n2 {
-        font-size: 2.5rem;
-    }
-
-    /* Ajustement Cadre Manifeste Mobile */
-    .cadre-manifeste {
-        padding: 1.5rem;
-        margin: 1rem;
-    }
-
-    .lunes-conteneur {
-        font-size: 3rem; /* Un peu plus petit sur mobile */
-        margin: 1rem 0;
-    }
-    
-    section p {
-        font-size: 1.1rem;
-    }
+/* GESTION DES IMAGES SVG */
+.svg-lune-hero {
+    width: 80px; /* Taille de la lune seule au-dessus du titre */
+    height: auto;
+    display: block;
 }
+
+.svg-lune-cycle {
+    width: 100%; /* Le cycle prend toute la largeur disponible (max 600px) */
+    max-width: 600px;
+    height: auto;
+    display: block;
+}
+
+.svg-lune-manifeste {
+    width: 60px; /* Taille dans le cadre noir */
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem auto; /* Centré horizontalement */
+}
+
+/* ... (Garde le reste : cadre-manifeste, sections, etc.) ... */
