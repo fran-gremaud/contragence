@@ -1,122 +1,285 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contragence Spatiale</title>
-    <!-- Lien vers ton fichier CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* =========================================
+   1. DÉCLARATION DES POLICES
+   ========================================= */
 
-    <!-- 1. MENU FIXE (NOIR) -->
-    <header>
-        <a href="#" class="logo">CONTRAGENCE SPATIALE</a>
-        <nav>
-            <ul>
-                <li><a href="#manifeste">manifeste</a></li>
-                <li><a href="#cestquoi">c'est quoi</a></li>
-                <li><a href="#cestqui">c'est qui</a></li>
-                <li><a href="#projets-editoriaux">projets éditoriaux</a></li>
-                <li><a href="#projet-politique">projet politique</a></li>
-                <li><a href="#contact">contact</a></li>
-            </ul>
-        </nav>
-    </header>
+/* Police 1 : Titres & Logo - PubliFluor */
+@font-face {
+    font-family: 'PubliFluor';
+    src: url('PubliFluorNormale.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
-    <!-- 2. HERO SECTION (TITRE ENCADRÉ DE 2 LUNES NOIRES) -->
-    <div class="hero">
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;">
-            
-            <!-- Lune noire 1 (Avant le titre) -->
-            <img src="lune_noire.svg" alt="Lune" class="svg-lune-hero">
+/* Police 2 : Emphase - Chaloupée */
+@font-face {
+    font-family: 'Chaloupee';
+    src: url('Chaloupee-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
-            <!-- TITRE N1 -->
-            <h1 class="titre-n1">
-                contragence<br>spatiale
-            </h1>
+/* Police 3 : Texte & Menu - Garabosse */
+@font-face {
+    font-family: 'Garabosse';
+    src: url('Garabosse-Perle.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
-            <!-- Lune noire 2 (Après le titre) -->
-            <img src="lune_noire.svg" alt="Lune" class="svg-lune-hero">
+/* =========================================
+   2. VARIABLES & RESET
+   ========================================= */
+:root {
+    --rose-fluo: #FF00FF;
+    --noir-intense: #000000;
+}
 
-            <!-- EMPHASE (Chaloupée) -->
-            <p class="emphase">
-                vous souhaite de beaux rêves
-            </p>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        </div>
-    </div>
+html {
+    scroll-behavior: smooth;
+}
 
-    <!-- 3. SECTION MANIFESTE (CADRE NOIR) -->
-    <section id="manifeste">
-        <!-- Titre aligné à gauche -->
-        <h2 class="titre-n2">Manifeste</h2>
-        
-        <div class="cadre-manifeste">
-            
-            <!-- 1. LE CYCLE LUNAIRE (Tout en haut du cadre) -->
-            <img src="lune_cycle.svg" alt="Cycle lunaire" class="svg-lune-cycle-manifeste">
+/* =========================================
+   3. STYLE GLOBAL
+   ========================================= */
+body {
+    background-color: var(--rose-fluo);
+    color: var(--noir-intense);
+    font-family: 'Garabosse', sans-serif;
+    line-height: 1.6;
+    font-size: 22px;
+    
+    /* Ligatures : Standards et Contextuelles */
+    font-variant-ligatures: common-ligatures contextual;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
 
-            <p>
-                La Contragence Spatiale est une maison de micro-éditions poétiques et subversives, née pour protéger les astres, dérouter les satellites et résister à l’instrumentalisation du cosmos. Elle recueille les messages des humains non capitaux, soutient les errances sidérales et publie les voix qui parlent depuis les marges de la gravité.
-            </p>
+/* =========================================
+   4. TYPOGRAPHIE GÉNÉRALE
+   ========================================= */
 
-            <p>
-                Elle agit contre la conquête, pour la dérive ; contre les missions, pour les fuites ; contre les empires, pour les constellations dissidentes.
-            </p>
+/* N1 : TITRE DU SITE (Hero) */
+.titre-n1 {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 15vw;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
 
-            <p>
-                Un projet pour les rêveureuses insurgé·es, les gardien·nes de la lune et les mots qui révolutionnent. 
-            </p>
-            
-            <p>
-                Le ciel n'est pas une limite, c'est un chantier.
-            </p>
+/* N2 : TITRES DE SECTIONS (Alignés à gauche) */
+.titre-n2 {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-bottom: 4px solid var(--noir-intense);
+    display: inline-block;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
 
-            <!-- 2. LA LUNE UNIQUE (Tout en bas du cadre) -->
-            <!-- Grâce au CSS, celle-ci deviendra ROSE FLUO sur le fond noir -->
-            <img src="lune_noire.svg" alt="Lune" class="svg-lune-manifeste">
+/* EMPHASE (Chaloupée) */
+.emphase {
+    font-family: 'Chaloupee', sans-serif;
+    font-size: 1.4em;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
 
-        </div>
-    </section>
+/* =========================================
+   5. HEADER & MENU (DESKTOP)
+   ========================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--noir-intense);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.4s ease;
+}
 
-    <!-- 4. AUTRES SECTIONS (TEXTE NORMAL) -->
-    <section id="cestquoi">
-        <h2 class="titre-n2">C'est quoi</h2>
-        <p class="texte-normal">
-            [Ton texte ici : explique la structure, l'agence, le vaisseau...]
-        </p>
-    </section>
+/* LOGO : PubliFluor */
+.logo {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
 
-    <section id="cestqui">
-        <h2 class="titre-n2">C'est qui</h2>
-        <p class="texte-normal">
-            [Ton texte ici : présente l'équipe, les fondateurs...]
-        </p>
-    </section>
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
 
-    <section id="projets-editoriaux">
-        <h2 class="titre-n2">Nos projets éditoriaux</h2>
-        <p class="texte-normal">
-            [Ton texte ici : détails des publications, revues, zines...]
-        </p>
-    </section>
+/* MENU : Garabosse en minuscules */
+nav a {
+    font-family: 'Garabosse', sans-serif !important;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: lowercase;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s, text-decoration 0.3s;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0.5px;
+}
 
-    <section id="projet-politique">
-        <h2 class="titre-n2">Le projet politique</h2>
-        <p class="texte-normal">
-            [Ton texte ici : engagements, combats, vision...]
-        </p>
-    </section>
+nav a:hover {
+    color: var(--rose-fluo);
+    text-decoration: underline;
+}
 
-    <section id="contact">
-        <h2 class="titre-n2">Contact</h2>
-        <p class="texte-normal">
-            Une idée ? Une envie de collaber ? Un signal à envoyer ?<br><br>
-            <strong>Email :</strong> contact@contragence-spatiale.xyz<br>
-            <strong>Signal / Tel :</strong> +41 XX XXX XX XX
-        </p>
-    </section>
+/* =========================================
+   6. HERO & SECTIONS GÉNÉRALES
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
 
-</body>
-</html>
+section {
+    min-height: 80vh;
+    padding: 6rem 2rem 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--rose-fluo);
+}
+
+/* =========================================
+   7. SECTION MANIFESTE (SPÉCIALE)
+   ========================================= */
+
+/* La section elle-même : aligne le titre à gauche */
+#manifeste {
+    align-items: flex-start; 
+}
+
+/* Le titre du manifeste : reste à gauche */
+#manifeste .titre-n2 {
+    align-self: flex-start;
+    margin-left: 0;
+    text-align: left;
+}
+
+/* LE CADRE NOIR UNIQUE */
+.cadre-manifeste {
+    background-color: var(--noir-intense);
+    color: var(--rose-fluo);
+    border: 2px solid var(--rose-fluo);
+    padding: 3rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
+}
+
+/* Paragraphes dans le cadre */
+.cadre-manifeste p {
+    font-family: 'Garabosse', sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.cadre-manifeste p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   8. AUTRES SECTIONS (RESET)
+   ========================================= */
+#cestquoi .texte-normal,
+#cestqui .texte-normal,
+#projets-editoriaux .texte-normal,
+#projet-politique .texte-normal,
+#contact .texte-normal {
+    color: var(--noir-intense);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+    max-width: 800px;
+}
+
+.texte-normal {
+    font-family: 'Garabosse', sans-serif;
+    font-size: 1em;
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   9. GESTION DES SVG (LUNES) - VERSION FINALE
+   ========================================= */
+
+/* Règle de base pour tous les SVG */
+img.svg-lune-hero, 
+img.svg-lune-cycle, 
+img.svg-lune-cycle-manifeste, 
+img.svg-lune-manifeste {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- LUNES DU HERO (Restent NOIRES sur fond Rose) --- */
+.svg-lune-hero {
+    width: 80px !important;
+    max-width: 80px !important;
+    margin: 0 auto;
+    /* Pas de filtre : le SVG noir reste noir */
+}
+
+/* --- CYCLE LUNAIRE (Dans le Hero - si utilisé) --- */
+.svg-lune-cycle {
+    width: 100% !important;
+    max-width: 800px !important;
+    margin: 20px auto;
+}
+
+/* --- CYCLE LUNAIRE (Dans le Manifeste) --- */
+/* Le cycle reste tel quel (noir et rose) */
+.svg-lune-cycle-manifeste {
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- LUNE UNIQUE (Dans le Manifeste - Devient ROSE sur fond Noir) --- */
+.svg-lune-manifeste {
+    width: 80px !important;
+    max-width: 80px !important;
+    margin: 2rem auto 0 auto;
+    
+    /* MAGIE : Transforme le NOIR du SVG en ROSE FLUO (#FF00FF) */
+    filter: invert(23%) sepia(96%) saturate(7416%) hue-rotate(286deg) brightness(94%) contrast(117%);
+}
