@@ -244,25 +244,32 @@ section {
     text-align: left;
 }
 
-/* GESTION DES IMAGES SVG */
-.svg-lune-hero {
-    width: 80px; /* Taille de la lune seule au-dessus du titre */
-    height: auto;
+/* =========================================
+   GESTION SPÉCIFIQUE DES SVG (LUNES)
+   ========================================= */
+
+/* Règle de sécurité pour TOUS les SVG du site */
+img[src$=".svg"] {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-.svg-lune-cycle {
-    width: 100%; /* Le cycle prend toute la largeur disponible (max 600px) */
-    max-width: 600px;
-    height: auto;
-    display: block;
-}
-
+/* 1. LA LUNE SEULE (Hero & Manifeste) */
+.svg-lune-hero, 
 .svg-lune-manifeste {
-    width: 60px; /* Taille dans le cadre noir */
-    height: auto;
+    width: 80px !important;       /* Taille fixe petite */
+    max-width: 80px !important;
+    height: auto !important;      /* Garde les proportions */
+    margin: 0 auto 20px auto;     /* Centré + espace en bas */
     display: block;
-    margin: 0 auto 1.5rem auto; /* Centré horizontalement */
 }
 
-/* ... (Garde le reste : cadre-manifeste, sections, etc.) ... */
+/* 2. LE CYCLE LUNAIRE (La longue bande de 1364px de large) */
+.svg-lune-cycle {
+    width: 100% !important;       /* Prend la largeur disponible */
+    max-width: 800px !important;  /* MAIS ne dépasse jamais 800px (ajustable) */
+    height: auto !important;      /* La hauteur se calcule toute seule (env 100px) */
+    margin: 20px auto;            /* Centré + espace haut/bas */
+    display: block;
+}
