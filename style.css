@@ -1,17 +1,6 @@
 /* =========================================
    1. DÉCLARATION DES POLICES
    ========================================= */
-
-/* Police 1 : Titres & Logo - PubliFluor */
-@font-face {
-    font-family: 'PubliFluor';
-    src: url('PubliFluorNormale.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;/* =========================================
-   1. DÉCLARATION DES POLICES
-   ========================================= */
-
-/* Police 1 : Titres & Logo - PubliFluor */
 @font-face {
     font-family: 'PubliFluor';
     src: url('PubliFluorNormale.otf') format('opentype');
@@ -20,7 +9,6 @@
     font-display: swap;
 }
 
-/* Police 2 : Emphase - Chaloupée */
 @font-face {
     font-family: 'Chaloupee';
     src: url('Chaloupee-Regular.woff2') format('woff2');
@@ -29,7 +17,6 @@
     font-display: swap;
 }
 
-/* Police 3 : Texte & Menu - Garabosse */
 @font-face {
     font-family: 'Garabosse';
     src: url('Garabosse-Perle.woff') format('woff');
@@ -57,17 +44,14 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL (TAILLE AUGMENTÉE)
+   3. STYLE GLOBAL
    ========================================= */
 body {
     background-color: var(--rose-fluo);
     color: var(--noir-intense);
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    /* TAILLE AUGMENTÉE : 22px pour une meilleure lisibilité */
-    font-size: 22px; 
-    
-    /* Ligatures : Standards et Contextuelles */
+    font-size: 22px;
     font-variant-ligatures: common-ligatures contextual;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
@@ -75,8 +59,6 @@ body {
 /* =========================================
    4. TYPOGRAPHIE
    ========================================= */
-
-/* N1 : TITRE DU SITE */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 15vw;
@@ -86,7 +68,6 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS (Alignés à gauche) */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 4rem;
@@ -98,7 +79,6 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* EMPHASE */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
     font-size: 1.4em;
@@ -106,7 +86,6 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* TEXTE NORMAL */
 .texte-normal {
     font-family: 'Garabosse', sans-serif;
     font-size: 1em;
@@ -115,7 +94,7 @@ body {
 }
 
 /* =========================================
-   5. HEADER & MENU
+   5. HEADER & MENU (DESKTOP PAR DÉFAUT)
    ========================================= */
 header {
     position: fixed;
@@ -129,263 +108,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-}
-
-/* LOGO : PubliFluor */
-.logo {
-    font-family: 'PubliFluor', sans-serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #FFFFFF;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-/* MENU : Garabosse en minuscules */
-nav a {
-    font-family: 'Garabosse', sans-serif !important;
-    text-decoration: none;
-    color: #FFFFFF;
-    text-transform: lowercase;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s, text-decoration 0.3s;
-    padding: 0.2rem 0.5rem;
-    letter-spacing: 0.5px;
-}
-
-nav a:hover {
-    color: var(--rose-fluo);
-    text-decoration: underline;
-}
-
-/* =========================================
-   6. HERO & SECTIONS
-   ========================================= */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 80px;
-}
-
-section {
-    min-height: 80vh;
-    padding: 6rem 2rem 4rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--rose-fluo);
-    /* Par défaut, pas de centrage horizontal pour garder les titres à gauche */
-}
-
-/* STYLE SPÉCIAL POUR LA SECTION MANIFESTE */
-#manifeste {
-    /* Le titre reste à gauche par défaut */
-}
-
-#manifeste .texte-normal {
-    /* Le cadre noir */
-    background-color: var(--noir-intense);
-    /* Texte rose */
-    color: var(--rose-fluo);
-    /* Le petit filet rose autour */
-    border: 2px solid var(--rose-fluo);
-    /* Espacement interne */
-    padding: 3rem;
-    /* Centrage du bloc noir uniquement */
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto 1.5rem auto; /* "0 auto" centre le bloc horizontalement */
-    
-    /* Ombre portée pour le relief */
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
-}
-
-/* Reset pour les autres sections (texte noir sur fond rose) */
-#cestquoi .texte-normal,
-#cestqui .texte-normal,
-#projets-editoriaux .texte-normal,
-#projet-politique .texte-normal,
-#contact .texte-normal {
-    color: var(--noir-intense);
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    margin: 0 0 1.5rem 0; /* Reset du margin */
-}
-
-section p {
-    font-size: 1em;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-}
-
-/* =========================================
-   7. MOBILE
-   ========================================= */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .titre-n1 {
-        font-size: 18vw;
-    }
-
-    .titre-n2 {
-        font-size: 2.5rem;
-    }
-
-    /* Ajustement du cadre manifeste sur mobile */
-    #manifeste .texte-normal {
-        padding: 1.5rem;
-        margin: 0 1rem 1.5rem 1rem;
-    }
-
-    section p {
-        font-size: 1.1rem;
-    }
-    
-    .emphase {
-        font-size: 1.2em;
-    }
-    
-    nav a {
-        font-size: 1.2rem;
-    }
-}
-    font-display: swap;
-}
-
-/* Police 2 : Emphase - Chaloupée */
-@font-face {
-    font-family: 'Chaloupee';
-    src: url('Chaloupee-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Police 3 : Texte & Menu - Garabosse */
-@font-face {
-    font-family: 'Garabosse';
-    src: url('Garabosse-Perle.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* =========================================
-   2. VARIABLES
-   ========================================= */
-:root {
-    --rose-fluo: #FF00FF;
-    --noir-intense: #000000;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* =========================================
-   3. STYLE GLOBAL (TAILLE AUGMENTÉE)
-   ========================================= */
-body {
-    background-color: var(--rose-fluo);
-    color: var(--noir-intense);
-    font-family: 'Garabosse', sans-serif;
-    line-height: 1.6;
-    /* TAILLE AUGMENTÉE : 22px au lieu de 18px */
-    font-size: 22px; 
-    
-    /* Ligatures : Standards et Contextuelles */
-    font-variant-ligatures: common-ligatures contextual;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* =========================================
-   4. TYPOGRAPHIE
-   ========================================= */
-
-/* N1 : TITRE DU SITE */
-.titre-n1 {
-    font-family: 'PubliFluor', sans-serif;
-    font-size: 15vw;
-    line-height: 0.9;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* N2 : TITRES DE SECTIONS */
-.titre-n2 {
-    font-family: 'PubliFluor', sans-serif;
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    border-bottom: 4px solid var(--noir-intense);
-    display: inline-block;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* EMPHASE */
-.emphase {
-    font-family: 'Chaloupee', sans-serif;
-    font-size: 1.4em;
-    font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
-}
-
-/* TEXTE NORMAL */
-.texte-normal {
-    font-family: 'Garabosse', sans-serif;
-    font-size: 1em; /* Hérite des 22px du body */
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-}
-
-/* =========================================
-   5. HEADER & MENU
-   ========================================= */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--noir-intense);
-    padding: 1rem 2rem;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    transition: padding 0.3s ease;
 }
 
 .logo {
@@ -443,31 +166,31 @@ section {
     background-color: var(--rose-fluo);
 }
 
-/* STYLE SPÉCIAL POUR LA SECTION MANIFESTE */
 #manifeste {
-    /* On centre le contenu de la section */
-    align-items: center; 
+    align-items: flex-start;
+}
+
+#manifeste .titre-n2 {
+    align-self: flex-start;
 }
 
 #manifeste .texte-normal {
-    /* Le cadre noir */
     background-color: var(--noir-intense);
-    /* Texte rose */
     color: var(--rose-fluo);
-    /* Le petit filet rose autour */
     border: 2px solid var(--rose-fluo);
-    /* Espacement interne pour que le texte ne colle pas aux bords */
     padding: 3rem;
-    /* On garde la largeur max mais on s'assure que c'est bien centré */
     max-width: 900px;
     width: 100%;
-    margin-bottom: 1.5rem;
-    
-    /* Optionnel : un peu d'ombre pour détacher du fond */
+    margin: 2rem auto 1.5rem auto;
+    text-align: center;
     box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
 }
 
-/* Pour les autres sections, on garde le texte noir normal */
+#manifeste h2 {
+    text-align: left;
+    margin-left: 0;
+}
+
 #cestquoi .texte-normal,
 #cestqui .texte-normal,
 #projets-editoriaux .texte-normal,
@@ -478,28 +201,125 @@ section {
     border: none;
     padding: 0;
     box-shadow: none;
+    margin: 0 0 1.5rem 0;
 }
 
-section p {
-    font-size: 1em; /* Hérite de la taille définie plus haut */
-    margin-bottom: 1.5rem;
-    max-width: 800px;
+/* LUNES : Filtre pour forcer le noir et blanc si besoin */
+.lunes-container div {
+    filter: grayscale(100%); /* Rend les emojis noir et blanc */
 }
 
 /* =========================================
-   7. MOBILE
+   7. MOBILE (VERSION EXPÉRIENCE)
    ========================================= */
 @media (max-width: 768px) {
+    
+    /* HEADER MOBILE : Plein écran au départ */
     header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Prend tout l'écran */
+        background-color: var(--noir-intense);
+        padding: 2rem;
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        z-index: 2000;
+        transition: height 0.4s ease, padding 0.4s ease, background-color 0.4s ease;
+        overflow: hidden;
+    }
+
+    /* Quand on a scrollé (classe ajoutée via JS ou comportement natif simulé) */
+    /* Note: Pour un vrai effet "au scroll", il faudrait un peu de JS. 
+       Ici, on fait une version simple : le menu est gros, et le contenu commence en dessous.
+       Si tu veux l'effet "rétrécissement au scroll", dis-le moi, je t'ajoute le petit script JS.
+       
+       POUR L'INSTANT : On fait un menu plein écran fixe, et le contenu est en dessous.
+       C'est plus simple et très impactant.
+    */
+    
+    /* Ajustement pour que le contenu ne soit pas caché par le menu plein écran */
+    body {
+        padding-top: 0; /* Le menu est en overlay ou pousse le contenu ? */
+        /* Si on veut que le menu pousse le contenu : */
+        /* On laisse le header en position relative sur mobile ? Non, fixed c'est mieux pour l'effet. */
+        /* Astuce : On met le header en fixed, et on ajoute un padding-top au body égal à 100vh ? Non, trop grand. */
+        
+        /* MEILLEURE APPROCHE MOBILE : 
+           Le header est fixed plein écran. L'utilisateur voit le menu.
+           Il doit "swiper" ou cliquer quelque part pour fermer ? 
+           Ou alors on le laisse fixe mais transparent après un certain scroll ?
+           
+           Simplifions : Le menu est une grosse barre noire en haut (pas plein écran), 
+           mais avec les liens en gros. Et au scroll, il rétrécit.
+           
+           NON, tu as demandé : "menu en noir qui prend tout l'écran".
+           Ok, on fait ça : Le header est fixed, height 100vh.
+           Le contenu (hero, sections) commence APRÈS le header (donc pushé vers le bas).
+           Mais comme le header est fixed, il cache le début...
+           
+           SOLUTION : On met le header en "relative" sur mobile pour qu'il prenne sa place (100vh) et pousse le contenu.
+           Comme ça, l'utilisateur voit le menu plein écran, puis il scrolle naturellement pour voir le site.
+           Et on utilise "position: sticky" pour la barre fine ?
+           
+           Allons-y pour cette version "Scroll Naturel" :
+        */
+    }
+
+    header {
+        position: relative; /* Il prend sa place et pousse le contenu */
+        height: 100vh; /* Plein écran */
+        padding: 2rem;
+        justify-content: center;
+    }
+
+    .logo {
+        font-size: 3rem; /* Logo plus gros */
+        margin-bottom: 3rem;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
+    }
+
+    nav a {
+        font-size: 1.8rem; /* Liens très gros */
+    }
+
+    /* Une fois qu'on a scrollé passé le header, on voudrait une barre fine...
+       Ça nécessite du JavaScript pour ajouter une classe "scrolled".
+       Je te mets le CSS pour la classe "scrolled", et le JS à la fin. */
+    
+    header.scrolled {
+        position: fixed;
+        top: 0;
+        height: auto;
+        min-height: 80px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        background-color: var(--noir-intense);
+    }
+
+    header.scrolled .logo {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    header.scrolled nav ul {
+        display: none; /* On cache les liens sur la barre fine pour simplifier ? Ou on les laisse petits ? */
+        /* Tu as dit : "il ne reste que la barre noir avec marqué contragence spatiale".
+           Donc on cache le menu nav. */
+    }
+    
+    /* Ajustement Hero sur mobile */
+    .hero {
+        padding-top: 0; /* Plus besoin de compenser le header fixed car il est relatif au début */
+        min-height: 80vh;
     }
 
     .titre-n1 {
@@ -510,21 +330,25 @@ section p {
         font-size: 2.5rem;
     }
 
-    /* Ajustement du cadre manifeste sur mobile */
     #manifeste .texte-normal {
         padding: 1.5rem;
-        margin: 0 1rem 1.5rem 1rem;
+        margin: 1rem;
+    }
+    
+    /* FORCE LA POLICE SEGUE UI SYMBOL SUR MOBILE */
+    .lunes-mobile {
+        font-family: 'Segoe UI Symbol', 'Apple Symbols', 'sans-serif' !important;
+        font-size: 4rem;
+        line-height: 1.2;
+        display: block;
+        margin: 1rem 0;
+        
+        /* SOLUTION DE SECOURS : Rend TOUT en noir et blanc si la police ne suffit pas */
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%); /* Pour Safari/iOS */
     }
 
-    section p {
-        font-size: 1.1rem; /* Un peu plus petit sur mobile mais reste lisible */
-    }
-    
-    .emphase {
-        font-size: 1.2em;
-    }
-    
-    nav a {
-        font-size: 1.2rem;
+    /* ... fin du CSS mobile ... */
+       
     }
 }
