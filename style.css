@@ -1,6 +1,8 @@
 /* =========================================
    1. DÉCLARATION DES POLICES
    ========================================= */
+
+/* Police 1 : Titres & Logo - PubliFluor */
 @font-face {
     font-family: 'PubliFluor';
     src: url('PubliFluorNormale.otf') format('opentype');
@@ -9,6 +11,7 @@
     font-display: swap;
 }
 
+/* Police 2 : Emphase - Chaloupée */
 @font-face {
     font-family: 'Chaloupee';
     src: url('Chaloupee-Regular.woff2') format('woff2');
@@ -17,6 +20,7 @@
     font-display: swap;
 }
 
+/* Police 3 : Texte & Menu - Garabosse */
 @font-face {
     font-family: 'Garabosse';
     src: url('Garabosse-Perle.woff') format('woff');
@@ -44,21 +48,25 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL
+   3. STYLE GLOBAL (TAILLE AUGMENTÉE)
    ========================================= */
 body {
     background-color: var(--rose-fluo);
     color: var(--noir-intense);
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    font-size: 22px;
+    font-size: 22px; /* Taille augmentée pour lisibilité */
+    
+    /* Ligatures : Standards et Contextuelles */
     font-variant-ligatures: common-ligatures contextual;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 /* =========================================
-   4. TYPOGRAPHIE
+   4. TYPOGRAPHIE GÉNÉRALE
    ========================================= */
+
+/* N1 : TITRE DU SITE (Hero) */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 15vw;
@@ -68,6 +76,7 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
+/* N2 : TITRES DE SECTIONS (Alignés à gauche par défaut) */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 4rem;
@@ -79,6 +88,7 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
+/* EMPHASE (Chaloupée) */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
     font-size: 1.4em;
@@ -86,15 +96,8 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-.texte-normal {
-    font-family: 'Garabosse', sans-serif;
-    font-size: 1em;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-}
-
 /* =========================================
-   5. HEADER & MENU (DESKTOP PAR DÉFAUT)
+   5. HEADER & MENU (DESKTOP)
    ========================================= */
 header {
     position: fixed;
@@ -108,9 +111,10 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    transition: padding 0.3s ease;
+    transition: all 0.4s ease;
 }
 
+/* LOGO : PubliFluor */
 .logo {
     font-family: 'PubliFluor', sans-serif;
     font-size: 1.5rem;
@@ -128,6 +132,7 @@ nav ul {
     flex-wrap: wrap;
 }
 
+/* MENU : Garabosse en minuscules */
 nav a {
     font-family: 'Garabosse', sans-serif !important;
     text-decoration: none;
@@ -146,7 +151,7 @@ nav a:hover {
 }
 
 /* =========================================
-   6. HERO & SECTIONS
+   6. HERO & SECTIONS GÉNÉRALES
    ========================================= */
 .hero {
     height: 100vh;
@@ -166,31 +171,65 @@ section {
     background-color: var(--rose-fluo);
 }
 
+/* =========================================
+   7. SECTION MANIFESTE (SPÉCIALE)
+   ========================================= */
+
+/* La section elle-même : aligne le titre à gauche */
 #manifeste {
-    align-items: flex-start;
+    align-items: flex-start; 
 }
 
+/* Le titre du manifeste : reste à gauche */
 #manifeste .titre-n2 {
     align-self: flex-start;
+    margin-left: 0;
+    text-align: left;
 }
 
-#manifeste .texte-normal {
+/* LE CADRE NOIR UNIQUE (Contient tout le texte et les lunes) */
+.cadre-manifeste {
     background-color: var(--noir-intense);
     color: var(--rose-fluo);
     border: 2px solid var(--rose-fluo);
     padding: 3rem;
     max-width: 900px;
     width: 100%;
-    margin: 2rem auto 1.5rem auto;
-    text-align: center;
+    margin: 2rem auto; /* Centré horizontalement */
+    text-align: center; /* Centre le contenu à l'intérieur du cadre */
     box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
 }
 
-#manifeste h2 {
-    text-align: left;
-    margin-left: 0;
+/* Paragraphes dans le cadre */
+.cadre-manifeste p {
+    font-family: 'Garabosse', sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
+.cadre-manifeste p:last-child {
+    margin-bottom: 0;
+}
+
+/* LUNES : Force Noir & Blanc et Police Segoe */
+.lunes-conteneur {
+    font-family: 'Segoe UI Symbol', 'Segoe UI', sans-serif !important;
+    font-size: 4rem;
+    line-height: 1;
+    display: block;
+    margin: 1.5rem 0;
+    
+    /* Force le noir et blanc (marche même si l'emoji est coloré) */
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    color: black;
+}
+
+/* =========================================
+   8. AUTRES SECTIONS (RESET)
+   ========================================= */
+/* S'assure que les autres sections restent en texte noir simple */
 #cestquoi .texte-normal,
 #cestqui .texte-normal,
 #projets-editoriaux .texte-normal,
@@ -202,82 +241,28 @@ section {
     padding: 0;
     box-shadow: none;
     margin: 0 0 1.5rem 0;
-}
-
-/* LUNES : Filtre pour forcer le noir et blanc si besoin */
-.lunes-container div {
-    filter: grayscale(100%); /* Rend les emojis noir et blanc */
+    text-align: left;
 }
 
 /* =========================================
-   7. MOBILE (VERSION EXPÉRIENCE)
+   9. MOBILE (VERSION EXPÉRIENCE)
    ========================================= */
 @media (max-width: 768px) {
     
-    /* HEADER MOBILE : Plein écran au départ */
+    /* HEADER MOBILE : Plein écran au chargement */
     header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh; /* Prend tout l'écran */
-        background-color: var(--noir-intense);
+        position: relative; /* Prend sa place et pousse le contenu */
+        height: 100vh;
         padding: 2rem;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        z-index: 2000;
-        transition: height 0.4s ease, padding 0.4s ease, background-color 0.4s ease;
-        overflow: hidden;
-    }
-
-    /* Quand on a scrollé (classe ajoutée via JS ou comportement natif simulé) */
-    /* Note: Pour un vrai effet "au scroll", il faudrait un peu de JS. 
-       Ici, on fait une version simple : le menu est gros, et le contenu commence en dessous.
-       Si tu veux l'effet "rétrécissement au scroll", dis-le moi, je t'ajoute le petit script JS.
-       
-       POUR L'INSTANT : On fait un menu plein écran fixe, et le contenu est en dessous.
-       C'est plus simple et très impactant.
-    */
-    
-    /* Ajustement pour que le contenu ne soit pas caché par le menu plein écran */
-    body {
-        padding-top: 0; /* Le menu est en overlay ou pousse le contenu ? */
-        /* Si on veut que le menu pousse le contenu : */
-        /* On laisse le header en position relative sur mobile ? Non, fixed c'est mieux pour l'effet. */
-        /* Astuce : On met le header en fixed, et on ajoute un padding-top au body égal à 100vh ? Non, trop grand. */
-        
-        /* MEILLEURE APPROCHE MOBILE : 
-           Le header est fixed plein écran. L'utilisateur voit le menu.
-           Il doit "swiper" ou cliquer quelque part pour fermer ? 
-           Ou alors on le laisse fixe mais transparent après un certain scroll ?
-           
-           Simplifions : Le menu est une grosse barre noire en haut (pas plein écran), 
-           mais avec les liens en gros. Et au scroll, il rétrécit.
-           
-           NON, tu as demandé : "menu en noir qui prend tout l'écran".
-           Ok, on fait ça : Le header est fixed, height 100vh.
-           Le contenu (hero, sections) commence APRÈS le header (donc pushé vers le bas).
-           Mais comme le header est fixed, il cache le début...
-           
-           SOLUTION : On met le header en "relative" sur mobile pour qu'il prenne sa place (100vh) et pousse le contenu.
-           Comme ça, l'utilisateur voit le menu plein écran, puis il scrolle naturellement pour voir le site.
-           Et on utilise "position: sticky" pour la barre fine ?
-           
-           Allons-y pour cette version "Scroll Naturel" :
-        */
-    }
-
-    header {
-        position: relative; /* Il prend sa place et pousse le contenu */
-        height: 100vh; /* Plein écran */
-        padding: 2rem;
-        justify-content: center;
+        background-color: var(--noir-intense);
     }
 
     .logo {
-        font-size: 3rem; /* Logo plus gros */
+        font-size: 3rem;
         margin-bottom: 3rem;
     }
 
@@ -287,13 +272,10 @@ section {
     }
 
     nav a {
-        font-size: 1.8rem; /* Liens très gros */
+        font-size: 1.8rem;
     }
 
-    /* Une fois qu'on a scrollé passé le header, on voudrait une barre fine...
-       Ça nécessite du JavaScript pour ajouter une classe "scrolled".
-       Je te mets le CSS pour la classe "scrolled", et le JS à la fin. */
-    
+    /* HEADER RÉTRÉCI AU SCROLL (Classe ajoutée par JS) */
     header.scrolled {
         position: fixed;
         top: 0;
@@ -310,15 +292,14 @@ section {
         margin-bottom: 0;
     }
 
+    /* On cache le menu quand c'est rétréci (comme demandé) */
     header.scrolled nav ul {
-        display: none; /* On cache les liens sur la barre fine pour simplifier ? Ou on les laisse petits ? */
-        /* Tu as dit : "il ne reste que la barre noir avec marqué contragence spatiale".
-           Donc on cache le menu nav. */
+        display: none;
     }
-    
-    /* Ajustement Hero sur mobile */
+
+    /* Ajustements Hero & Titres */
     .hero {
-        padding-top: 0; /* Plus besoin de compenser le header fixed car il est relatif au début */
+        padding-top: 0;
         min-height: 80vh;
     }
 
@@ -330,25 +311,18 @@ section {
         font-size: 2.5rem;
     }
 
-    #manifeste .texte-normal {
+    /* Ajustement Cadre Manifeste Mobile */
+    .cadre-manifeste {
         padding: 1.5rem;
         margin: 1rem;
     }
-    
-    /* FORCE LA POLICE SEGUE UI SYMBOL SUR MOBILE */
-    .lunes-mobile {
-        font-family: 'Segoe UI Symbol', 'Apple Symbols', 'sans-serif' !important;
-        font-size: 4rem;
-        line-height: 1.2;
-        display: block;
-        margin: 1rem 0;
-        
-        /* SOLUTION DE SECOURS : Rend TOUT en noir et blanc si la police ne suffit pas */
-        filter: grayscale(100%);
-        -webkit-filter: grayscale(100%); /* Pour Safari/iOS */
-    }
 
-    /* ... fin du CSS mobile ... */
-       
+    .lunes-conteneur {
+        font-size: 3rem; /* Un peu plus petit sur mobile */
+        margin: 1rem 0;
+    }
+    
+    section p {
+        font-size: 1.1rem;
     }
 }
