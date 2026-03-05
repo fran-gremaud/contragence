@@ -48,14 +48,15 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL
+   3. STYLE GLOBAL (TAILLE AUGMENTÉE)
    ========================================= */
 body {
     background-color: var(--rose-fluo);
     color: var(--noir-intense);
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    font-size: 18px;
+    /* TAILLE AUGMENTÉE : 22px au lieu de 18px */
+    font-size: 22px; 
     
     /* Ligatures : Standards et Contextuelles */
     font-variant-ligatures: common-ligatures contextual;
@@ -66,23 +67,22 @@ body {
    4. TYPOGRAPHIE
    ========================================= */
 
-/* N1 : TITRE DU SITE (Reste en MAJUSCULES via le HTML ou on peut forcer ici) */
+/* N1 : TITRE DU SITE */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 15vw;
     line-height: 0.9;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS (AVEC BARRE NOIRE) */
+/* N2 : TITRES DE SECTIONS */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
     font-size: 4rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
-    /* RETOUR DE LA BARRE NOIRE */
     border-bottom: 4px solid var(--noir-intense);
     display: inline-block;
     font-weight: normal;
@@ -100,7 +100,7 @@ body {
 /* TEXTE NORMAL */
 .texte-normal {
     font-family: 'Garabosse', sans-serif;
-    font-size: 1em;
+    font-size: 1em; /* Hérite des 22px du body */
     margin-bottom: 1.5rem;
     max-width: 800px;
 }
@@ -122,7 +122,6 @@ header {
     flex-wrap: wrap;
 }
 
-/* LOGO : PubliFluor */
 .logo {
     font-family: 'PubliFluor', sans-serif;
     font-size: 1.5rem;
@@ -140,14 +139,13 @@ nav ul {
     flex-wrap: wrap;
 }
 
-/* MENU : Garabosse en MINUSCULES */
 nav a {
     font-family: 'Garabosse', sans-serif !important;
     text-decoration: none;
     color: #FFFFFF;
-    text-transform: lowercase; /* FORCE LES MINUSCULES */
+    text-transform: lowercase;
     font-weight: bold;
-    font-size: 1.1rem; /* Un tout petit peu plus grand pour la lisibilité */
+    font-size: 1.1rem;
     transition: color 0.3s, text-decoration 0.3s;
     padding: 0.2rem 0.5rem;
     letter-spacing: 0.5px;
@@ -173,17 +171,53 @@ nav a:hover {
 section {
     min-height: 80vh;
     padding: 6rem 2rem 4rem 2rem;
-    /* Plus de bordure sur la section elle-même, c'est le titre qui a la barre */
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: var(--rose-fluo);
 }
 
-section p {
-    font-size: 1.5rem;
-    max-width: 800px;
+/* STYLE SPÉCIAL POUR LA SECTION MANIFESTE */
+#manifeste {
+    /* On centre le contenu de la section */
+    align-items: center; 
+}
+
+#manifeste .texte-normal {
+    /* Le cadre noir */
+    background-color: var(--noir-intense);
+    /* Texte rose */
+    color: var(--rose-fluo);
+    /* Le petit filet rose autour */
+    border: 2px solid var(--rose-fluo);
+    /* Espacement interne pour que le texte ne colle pas aux bords */
+    padding: 3rem;
+    /* On garde la largeur max mais on s'assure que c'est bien centré */
+    max-width: 900px;
+    width: 100%;
     margin-bottom: 1.5rem;
+    
+    /* Optionnel : un peu d'ombre pour détacher du fond */
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
+}
+
+/* Pour les autres sections, on garde le texte noir normal */
+#cestquoi .texte-normal,
+#cestqui .texte-normal,
+#projets-editoriaux .texte-normal,
+#projet-politique .texte-normal,
+#contact .texte-normal {
+    color: var(--noir-intense);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+section p {
+    font-size: 1em; /* Hérite de la taille définie plus haut */
+    margin-bottom: 1.5rem;
+    max-width: 800px;
 }
 
 /* =========================================
@@ -210,8 +244,14 @@ section p {
         font-size: 2.5rem;
     }
 
+    /* Ajustement du cadre manifeste sur mobile */
+    #manifeste .texte-normal {
+        padding: 1.5rem;
+        margin: 0 1rem 1.5rem 1rem;
+    }
+
     section p {
-        font-size: 1.2rem;
+        font-size: 1.1rem; /* Un peu plus petit sur mobile mais reste lisible */
     }
     
     .emphase {
