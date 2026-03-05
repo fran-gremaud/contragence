@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contragence Spatiale</title>
-    <!-- Lien vers ton CSS -->
+    <!-- Lien vers ton fichier CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- 1. MENU FIXE (NOIR) -->
     <header>
-        <a href="#" class="logo">Contragence Spatiale</a>
+        <a href="#" class="logo">CONTRAGENCE SPATIALE</a>
         <nav>
             <ul>
                 <li><a href="#manifeste">manifeste</a></li>
@@ -24,12 +24,11 @@
         </nav>
     </header>
 
-    <!-- 2. HERO SECTION (TITRE + LUNES SVG) -->
+    <!-- 2. HERO SECTION (TITRE ENCADRÉ DE 2 LUNES NOIRES) -->
     <div class="hero">
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;">
             
-            <!-- Lune unique avant le titre (Optionnel, sinon tu peux l'enlever) -->
-            <!-- Si tu veux juste le cycle après, supprime ce bloc -->
+            <!-- Lune noire 1 (Avant le titre) -->
             <img src="lune_noire.svg" alt="Lune" class="svg-lune-hero">
 
             <!-- TITRE N1 -->
@@ -37,7 +36,7 @@
                 contragence<br>spatiale
             </h1>
 
-            <!-- CYCLE LUNAIRE (Ton fichier SVG cycle) -->
+            <!-- Lune noire 2 (Après le titre) -->
             <img src="lune_noire.svg" alt="Lune" class="svg-lune-hero">
 
             <!-- EMPHASE (Chaloupée) -->
@@ -48,13 +47,14 @@
         </div>
     </div>
 
-   <!-- 3. SECTION MANIFESTE -->
+    <!-- 3. SECTION MANIFESTE (CADRE NOIR) -->
     <section id="manifeste">
+        <!-- Titre aligné à gauche -->
         <h2 class="titre-n2">Manifeste</h2>
         
         <div class="cadre-manifeste">
             
-            <!-- 1. LE CYCLE LUNAIRE (En haut du cadre) -->
+            <!-- 1. LE CYCLE LUNAIRE (Tout en haut du cadre) -->
             <img src="lune_cycle.svg" alt="Cycle lunaire" class="svg-lune-cycle-manifeste">
 
             <p>
@@ -69,9 +69,12 @@
                 Un projet pour les rêveureuses insurgé·es, les gardien·nes de la lune et les mots qui révolutionnent. 
             </p>
             
+            <p>
+                Le ciel n'est pas une limite, c'est un chantier.
             </p>
 
-            <!-- 2. LA LUNE UNIQUE (Visage) (En bas du cadre) -->
+            <!-- 2. LA LUNE UNIQUE (Tout en bas du cadre) -->
+            <!-- Grâce au CSS, celle-ci deviendra ROSE FLUO sur le fond noir -->
             <img src="lune_noire.svg" alt="Lune" class="svg-lune-manifeste">
 
         </div>
@@ -80,29 +83,38 @@
     <!-- 4. AUTRES SECTIONS (TEXTE NORMAL) -->
     <section id="cestquoi">
         <h2 class="titre-n2">C'est quoi</h2>
-        <p class="texte-normal">[Ton texte ici...]</p>
+        <p class="texte-normal">
+            [Ton texte ici : explique la structure, l'agence, le vaisseau...]
+        </p>
     </section>
 
     <section id="cestqui">
         <h2 class="titre-n2">C'est qui</h2>
-        <p class="texte-normal">[Ton texte ici...]</p>
+        <p class="texte-normal">
+            [Ton texte ici : présente l'équipe, les fondateurs...]
+        </p>
     </section>
 
     <section id="projets-editoriaux">
         <h2 class="titre-n2">Nos projets éditoriaux</h2>
-        <p class="texte-normal">[Ton texte ici...]</p>
+        <p class="texte-normal">
+            [Ton texte ici : détails des publications, revues, zines...]
+        </p>
     </section>
 
     <section id="projet-politique">
         <h2 class="titre-n2">Le projet politique</h2>
-        <p class="texte-normal">[Ton texte ici...]</p>
+        <p class="texte-normal">
+            [Ton texte ici : engagements, combats, vision...]
+        </p>
     </section>
 
     <section id="contact">
         <h2 class="titre-n2">Contact</h2>
         <p class="texte-normal">
-            Une idée ? Une envie de collaber ?<br>
-            <strong>Email :</strong> contact@contragence-spatiale.xyz
+            Une idée ? Une envie de collaber ? Un signal à envoyer ?<br><br>
+            <strong>Email :</strong> contact@contragence-spatiale.xyz<br>
+            <strong>Signal / Tel :</strong> +41 XX XXX XX XX
         </p>
     </section>
 
