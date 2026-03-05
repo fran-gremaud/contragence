@@ -4,49 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contragence Spatiale</title>
-    
-    <!-- LIEN VERS TON FICHIER CSS -->
+    <!-- Lien vers ton CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- MENU FIXE EN HAUT -->
+    <!-- 1. MENU FIXE (NOIR) -->
     <header>
         <a href="#" class="logo">Contragence Spatiale</a>
         <nav>
             <ul>
-                <li><a href="#manifeste">Manifeste</a></li>
-                <li><a href="#cestquoi">C'est quoi</a></li>
-                <li><a href="#cestqui">C'est qui</a></li>
-                <li><a href="#projets-editoriaux">Projets éditoriaux</a></li>
-                <li><a href="#projet-politique">Projet politique</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#manifeste">manifeste</a></li>
+                <li><a href="#cestquoi">c'est quoi</a></li>
+                <li><a href="#cestqui">c'est qui</a></li>
+                <li><a href="#projets-editoriaux">projets éditoriaux</a></li>
+                <li><a href="#projet-politique">projet politique</a></li>
+                <li><a href="#contact">contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- ZONE PRINCIPALE (HERO) -->
+    <!-- 2. HERO SECTION (TITRE + LUNES SVG) -->
     <div class="hero">
-        <!-- Conteneur pour centrer le tout verticalement et horizontalement -->
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;">
-
-             <!-- SYMBOLE AVANT (Segoe UI Symbol) -->
-            <div style="font-family: 'Segoe UI Symbol', sans-serif; font-size: 4rem; line-height: 1;">
-                🌚
-            </div>
             
-            <!-- TITRE N1 (PubliFluor - Très gros) -->
+            <!-- Lune unique avant le titre (Optionnel, sinon tu peux l'enlever) -->
+            <!-- Si tu veux juste le cycle après, supprime ce bloc -->
+            <img src="lune_noire.svg" alt="Lune" class="svg-lune-hero">
+
+            <!-- TITRE N1 -->
             <h1 class="titre-n1">
-                contragence<br>spatiale 
+                contragence<br>spatiale
             </h1>
 
-               <!-- SYMBOLE APRÈS (Segoe UI Symbol) -->
-            <div style="font-family: 'Segoe UI Symbol', sans-serif; font-size: 4rem; line-height: 1;">
-                🌚
-            </div>
+            <!-- CYCLE LUNAIRE (Ton fichier SVG cycle) -->
+            <img src="lune_cycle.svg" alt="Cycle lunaire" class="svg-lune-cycle">
 
-
-            <!-- EMPHASE (Chaloupée - Phrase sous le titre) -->
+            <!-- EMPHASE (Chaloupée) -->
             <p class="emphase">
                 vous souhaite de beaux rêves
             </p>
@@ -54,17 +48,13 @@
         </div>
     </div>
 
-<!-- SECTION 1 : MANIFESTE -->
+    <!-- 3. SECTION MANIFESTE (CADRE NOIR) -->
     <section id="manifeste">
         <h2 class="titre-n2">Manifeste</h2>
         
-        <!-- LE CADRE NOIR UNIQUE -->
         <div class="cadre-manifeste">
-            
-            <!-- Lune du haut -->
-            <div class="lunes-conteneur">
-                🌘🌗🌖🌕🌔🌓🌒   
-            </div>
+            <!-- Lune unique dans le cadre (Optionnel) -->
+            <img src="lune_noire.svg" alt="Lune" class="svg-lune-manifeste">
 
             <p>
                 La Contragence Spatiale est une maison de micro-éditions poétiques et subversives, née pour protéger les astres, dérouter les satellites et résister à l’instrumentalisation du cosmos. Elle recueille les messages des humains non capitaux, soutient les errances sidérales et publie les voix qui parlent depuis les marges de la gravité.
@@ -77,91 +67,41 @@
             <p>
                 Un projet pour les rêveureuses insurgé·es, les gardien·nes de la lune et les mots qui révolutionnent. 
             </p>
-
-            <!-- Lune du bas -->
-            <div class="lunes-conteneur">
-                🌚
-            </div>
             
             <p>
                 Le ciel n'est pas une limite, c'est un chantier.
             </p>
-
         </div>
     </section>
-            </p>
 
-        </div>
-    </section>
-    <!-- SECTION 2 : C'EST QUOI -->
+    <!-- 4. AUTRES SECTIONS (TEXTE NORMAL) -->
     <section id="cestquoi">
         <h2 class="titre-n2">C'est quoi</h2>
-        <p class="texte-normal">
-            [Explication de la structure. Est-ce un collectif ? Une agence ? Un vaisseau ?]
-        </p>
-        <p class="texte-normal">
-            Une entité fluide opérant dans la stratosphère des idées.
-        </p>
+        <p class="texte-normal">[Ton texte ici...]</p>
     </section>
 
-    <!-- SECTION 3 : C'EST QUI -->
     <section id="cestqui">
         <h2 class="titre-n2">C'est qui</h2>
-        <p class="texte-normal">
-            [Présentation de l'équipe, des fondateurs, des complices.]
-        </p>
-        <p class="texte-normal">
-            Nous sommes les architectes de l'orbite basse.
-        </p>
+        <p class="texte-normal">[Ton texte ici...]</p>
     </section>
 
-    <!-- SECTION 4 : PROJETS ÉDITORIAUX -->
     <section id="projets-editoriaux">
         <h2 class="titre-n2">Nos projets éditoriaux</h2>
-        <p class="texte-normal">
-            [Détail de vos publications, revues, zines, contenus.]
-        </p>
-        <p class="texte-normal">
-            Parce que c'est pour ça qu'on est là : diffuser la parole.
-        </p>
+        <p class="texte-normal">[Ton texte ici...]</p>
     </section>
 
-    <!-- SECTION 5 : PROJET POLITIQUE -->
     <section id="projet-politique">
         <h2 class="titre-n2">Le projet politique</h2>
-        <p class="texte-normal">
-            [Votre engagement, vos combats, votre vision de la société.]
-        </p>
-        <p class="texte-normal">
-            Parce que c'est aussi pour ça qu'on est là : transformer le réel.
-        </p>
+        <p class="texte-normal">[Ton texte ici...]</p>
     </section>
 
-    <!-- SECTION 6 : CONTACT -->
     <section id="contact">
         <h2 class="titre-n2">Contact</h2>
         <p class="texte-normal">
-            Une idée ? Une envie de collaber ? Un signal à envoyer ?
-        </p>
-        <p class="texte-normal">
-            <strong>Email :</strong> contact@contragence-spatiale.xyz<br>
-            <strong>Signal / Tel :</strong> +41 XX XXX XX XX
+            Une idée ? Une envie de collaber ?<br>
+            <strong>Email :</strong> contact@contragence-spatiale.xyz
         </p>
     </section>
-    
-<!-- ... tout ton contenu HTML ... -->
 
-    <!-- SCRIPT POUR L'EFFET MOBILE AU SCROLL -->
-    <script>
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            // Si on a scrollé de plus de 50px
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
