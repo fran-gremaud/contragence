@@ -272,45 +272,54 @@ img.svg-lune-manifeste {
     margin: 2rem auto 0 auto;
 }
 /* =========================================
-   10. ANIMATION "PRISME STELLAIRE" (LUNE BLANCHE)
+   10. ANIMATION "PURE NEON FLASH" (SANS BLANC)
    ========================================= */
 
-@keyframes scintillement-prisme {
+@keyframes flash-neon-pur {
     0% { 
+        opacity: 0; /* Invisible (Noir) */
+        transform: scale(0.8);
+        /* Noir de base */
+        filter: brightness(0) saturate(0); 
+    }
+    10% { 
         opacity: 1; 
-        transform: scale(1) translate(0, 0); 
-        /* BLANC PUR */
-        filter: invert(1) brightness(1) hue-rotate(0deg) saturate(0); 
+        transform: scale(1.2);
+        /* FLASH CYAN ÉLECTRIQUE */
+        filter: brightness(4) saturate(10) hue-rotate(160deg); 
     }
     20% { 
-        opacity: 0.2; 
-        transform: scale(0.6) translate(3px, -3px); 
-        /* Presque éteinte */
-        filter: invert(1) brightness(0.2) hue-rotate(90deg); 
+        opacity: 0.1; 
+        transform: scale(0.9);
+        filter: brightness(0.5) saturate(5); 
     }
-    40% { 
+    35% { 
         opacity: 1; 
-        transform: scale(1.4) translate(-2px, 2px); 
-        /* EXPLOSION CYAN/VERT */
-        filter: invert(1) brightness(3) hue-rotate(160deg) saturate(5); 
+        transform: scale(1.4);
+        /* FLASH MAGENTA/VIOLET */
+        filter: brightness(5) saturate(15) hue-rotate(290deg); 
+    }
+    50% { 
+        opacity: 0; 
+        transform: scale(0.7);
+        filter: brightness(0); 
     }
     60% { 
-        opacity: 0.5; 
-        transform: scale(0.9) translate(-1px, 1px); 
-        /* VIOLET/ROSE */
-        filter: invert(1) brightness(2) hue-rotate(280deg) saturate(8); 
+        opacity: 1; 
+        transform: scale(1.1);
+        /* FLASH VERT POMME */
+        filter: brightness(3) saturate(8) hue-rotate(80deg); 
     }
     80% { 
-        opacity: 1; 
-        transform: scale(1.2) translate(2px, 2px); 
-        /* ROUGE/ORANGE */
-        filter: invert(1) brightness(2.5) hue-rotate(340deg) saturate(6); 
+        opacity: 0.2; 
+        transform: scale(0.9);
+        filter: brightness(1); 
     }
     100% { 
-        opacity: 0.1; 
-        transform: scale(0.7) translate(1px, -1px); 
-        /* Presque éteinte */
-        filter: invert(1) brightness(0.1) hue-rotate(0deg); 
+        opacity: 0; 
+        transform: scale(1);
+        /* Retour au noir */
+        filter: brightness(0); 
     }
 }
 
@@ -319,7 +328,7 @@ img.svg-lune-manifeste {
     max-width: 80px !important;
     margin: 0 auto;
     
-    /* L'animation sera gérée par le JS */
+    /* Pas d'animation par défaut, gérée par JS */
     transform-origin: center;
     will-change: transform, filter, opacity;
 }
