@@ -111,28 +111,30 @@
             <strong>Signal / Tel :</strong> +41 XX XXX XX XX
         </p>
     </section>
+<!-- ... (le reste de ton site) ... -->
 
-    <!-- SCRIPT FLASH NÉON PUR -->
+    <!-- SCRIPT VARIATEUR DE VITESSE (ROBUSTE) -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const lunes = document.querySelectorAll('.svg-lune-hero');
             
             lunes.forEach((lune, index) => {
-                function flash() {
-                    // Durée ultra-courte pour l'effet "Flash" (0.05s à 0.3s)
-                    const duration = (Math.random() * 0.25) + 0.05; 
+                function changerVitesse() {
+                    // Vitesse aléatoire entre 0.2s (très rapide) et 1.5s (lent)
+                    const nouvelleVitesse = (Math.random() * 1.3) + 0.2;
                     
-                    // Pause aléatoire entre les flashes (0.1s à 0.5s)
-                    const pause = (Math.random() * 0.4) + 0.1;
+                    // Applique la nouvelle durée à l'animation en cours
+                    lune.style.animationDuration = nouvelleVitesse + 's';
                     
-                    lune.style.animation = `flash-neon-pur ${duration}s linear 1`; // 1 seule fois
-                    
-                    // Relance après la pause
-                    setTimeout(flash, (duration + pause) * 1000);
+                    // Optionnel : changer légèrement le délai pour désynchroniser
+                    lune.style.animationDelay = (Math.random() * 0.5) + 's';
+
+                    // On rappelle la fonction dans 1 à 3 secondes pour changer encore la vitesse
+                    setTimeout(changerVitesse, (Math.random() * 2000) + 1000);
                 }
                 
-                // Démarrage décalé
-                setTimeout(flash, Math.random() * 1000); 
+                // Lancement initial
+                changerVitesse();
             });
         });
     </script>
