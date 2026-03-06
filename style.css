@@ -273,31 +273,28 @@ img.svg-lune-manifeste {
 }
 
 /* =========================================
-   10. ANIMATION CLIGNOTEMENT (LUNES)
+   10. ANIMATION "SIRIUS" (LUNES)
    ========================================= */
 
-/* On applique l'animation aux lunes du Hero */
+/* Animation de base : très rapide, saccadée */
+@keyframes scintillement-sirius {
+    0% { opacity: 1; transform: scale(1); filter: hue-rotate(0deg) brightness(1); }
+    20% { opacity: 0.2; transform: scale(0.9); filter: hue-rotate(45deg) brightness(1.2); } /* Bleu/Blanc */
+    40% { opacity: 1; transform: scale(1.1); filter: hue-rotate(-20deg) brightness(0.8); } /* Rouge/Orange */
+    60% { opacity: 0.4; transform: scale(0.95); filter: hue-rotate(0deg) brightness(1.5); }
+    80% { opacity: 1; transform: scale(1); filter: hue-rotate(10deg) brightness(1); }
+    100% { opacity: 0.1; transform: scale(0.8); filter: hue-rotate(-45deg) brightness(0.5); }
+}
+
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-    filter: none; /* Reste noir */
+    filter: none; /* Garde le noir de base, le JS va ajouter les couleurs */
     
-    /* Application de l'animation : 
-       Nom | Durée | Fonction de timing | Itération | Direction 
-    */
-    animation: clignotement 0.8s infinite ease-in-out;
-}
-
-/* Définition de l'animation */
-@keyframes clignotement {
-    0% { opacity: 1; }
-    50% { opacity: 0.1; } /* Presque invisible */
-    100% { opacity: 1; }
-}
-
-/* Pour que les deux lunes ne clignotent pas en même temps, 
-   on décale la deuxième lune */
-.hero img.svg-lune-hero:nth-of-type(2) {
-    animation-delay: 0.4s; /* Décalage de la moitié de la durée */
+    /* L'animation sera pilotée par le JS pour la durée */
+    animation-name: scintillement-sirius;
+    animation-timing-function: steps(2, start); /* Effet saccadé, pas de fondu */
+    animation-iteration-count: infinite;
+    transform-origin: center;
 }
