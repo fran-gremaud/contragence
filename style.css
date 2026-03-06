@@ -272,48 +272,22 @@ img.svg-lune-manifeste {
     margin: 2rem auto 0 auto;
 }
 /* =========================================
-   10. ANIMATION "NÉON SIRIUS" (PLUS LENT & COLORÉ)
+   10. ANIMATION "NÉON SIRIUS" (POUR DEUX LUNES)
    ========================================= */
 
 @keyframes scintillement-neon {
-    0% { 
-        opacity: 1; 
-        transform: scale(1); 
-        filter: hue-rotate(0deg) saturate(1) brightness(1) drop-shadow(0 0 0px transparent); 
-    }
-    25% { 
-        opacity: 0.3; 
-        transform: scale(0.85); 
-        filter: hue-rotate(90deg) saturate(5) brightness(1.5) drop-shadow(0 0 5px cyan); 
-    }
-    50% { 
-        opacity: 1; 
-        transform: scale(1.15); 
-        filter: hue-rotate(180deg) saturate(8) brightness(1.2) drop-shadow(0 0 15px magenta); 
-    }
-    75% { 
-        opacity: 0.5; 
-        transform: scale(0.9); 
-        filter: hue-rotate(270deg) saturate(4) brightness(1.8) drop-shadow(0 0 8px violet); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: scale(1); 
-        filter: hue-rotate(360deg) saturate(1) brightness(1) drop-shadow(0 0 0px transparent); 
-    }
+    0% { opacity: 1; transform: scale(1); filter: hue-rotate(0deg) saturate(1) brightness(1); }
+    30% { opacity: 0.2; transform: scale(0.8); filter: hue-rotate(90deg) saturate(5) brightness(1.5); }
+    60% { opacity: 1; transform: scale(1.2); filter: hue-rotate(180deg) saturate(8) brightness(1.2); }
+    100% { opacity: 0.4; transform: scale(0.9); filter: hue-rotate(270deg) saturate(4) brightness(1.8); }
 }
 
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
+    filter: none; /* Noir par défaut */
     
-    /* Animation de base */
-    animation-name: scintillement-neon;
-    animation-timing-function: ease-in-out; /* Un peu plus fluide pour voir les couleurs */
-    animation-iteration-count: infinite;
+    /* L'animation sera injectée par le JS individuellement */
     transform-origin: center;
-    
-    /* On garde le noir de base, le filtre de l'animation prendra le dessus */
-    filter: none; 
 }
