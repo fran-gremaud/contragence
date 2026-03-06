@@ -2,7 +2,6 @@
    1. DÉCLARATION DES POLICES
    ========================================= */
 
-/* Police 1 : Titres & Logo - PubliFluor */
 @font-face {
     font-family: 'PubliFluor';
     src: url('PubliFluorNormale.otf') format('opentype');
@@ -11,7 +10,6 @@
     font-display: swap;
 }
 
-/* Police 2 : Emphase - Chaloupée */
 @font-face {
     font-family: 'Chaloupee';
     src: url('Chaloupee-Regular.woff2') format('woff2');
@@ -20,7 +18,6 @@
     font-display: swap;
 }
 
-/* Police 3 : Texte & Menu - Garabosse */
 @font-face {
     font-family: 'Garabosse';
     src: url('Garabosse-Perle.woff') format('woff');
@@ -30,11 +27,12 @@
 }
 
 /* =========================================
-   2. VARIABLES & RESET
+   2. VARIABLES
    ========================================= */
 :root {
     --rose-fluo: #FF00FF;
     --noir-intense: #000000;
+    --blanc: #FFFFFF;
 }
 
 * {
@@ -48,34 +46,39 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL (TYPO FLUIDE)
+   3. STYLE GLOBAL (FOND DÉGRADÉ + TEXTE BLANC)
    ========================================= */
 body {
-    background-color: var(--rose-fluo);
-    color: var(--noir-intense);
+    /* DÉGRADÉ SPATIAL : Du Rose vers le Bleu Nuit */
+    background: linear-gradient(180deg, 
+        #FF00FF 0%,   /* Rose Fluo (Haut) */
+        #D500FF 25%,  /* Violet */
+        #AA00FF 50%,  /* Violet Profond */
+        #5500FF 75%,  /* Bleu Violet */
+        #1a0b2e 100%  /* Bleu Nuit Très Sombre (Bas) */
+    );
+    
+    min-height: 100vh;
+    
+    /* TEXTE BLANC : Indispensable pour la lisibilité sur le fond sombre du bas */
+    color: var(--blanc);
+    
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    
-    /* TAILLE FLUIDE DU TEXTE :
-       Minimum 18px (lisible sur petit écran)
-       Idéal 2.2vw (s'adapte à la largeur)
-       Maximum 24px (confort sur grand écran)
-    */
     font-size: clamp(18px, 2.2vw, 24px);
     
-    /* Ligatures : Standards et Contextuelles */
     font-variant-ligatures: common-ligatures contextual;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 /* =========================================
-   4. TYPOGRAPHIE GÉNÉRALE (FLUIDE)
+   4. TYPOGRAPHIE
    ========================================= */
 
-/* N1 : TITRE DU SITE (Hero) */
+/* N1 : TITRE DU SITE (Hero) - En Blanc pour contraster */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
-    /* Min: 80px, Idéal: 15vw, Max: 250px */
+    color: var(--noir-intense); /* On garde le noir ici car le fond est encore rose vif */
     font-size: clamp(80px, 15vw, 250px);
     line-height: 0.9;
     text-transform: uppercase;
@@ -83,29 +86,30 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS */
+/* N2 : TITRES DE SECTIONS - En Blanc */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
-    /* Min: 2.5rem, Idéal: 4vw, Max: 5rem */
+    color: var(--noir-intense); /* Noir pour contraster avec le rose/violet clair du haut */
     font-size: clamp(2.5rem, 4vw, 5rem);
     text-transform: uppercase;
     margin-bottom: 2rem;
-    border-bottom: 4px solid var(--noir-intense);
+    border-bottom: 4px solid; /* La couleur sera définie plus bas par section */
     display: inline-block;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* EMPHASE (Chaloupée) */
+/* EMPHASE (Chaloupée) - En Blanc ou Noir selon contraste, ici Blanc */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
-    font-size: 1.4em; /* Relatif à la taille fluide du body */
+    color: var(--noir-intense);
+    font-size: 1.4em;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
 /* =========================================
-   5. HEADER & MENU (DESKTOP)
+   5. HEADER & MENU
    ========================================= */
 header {
     position: fixed;
@@ -119,10 +123,8 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    transition: all 0.4s ease;
 }
 
-/* LOGO : PubliFluor */
 .logo {
     font-family: 'PubliFluor', sans-serif;
     font-size: 1.5rem;
@@ -140,7 +142,6 @@ nav ul {
     flex-wrap: wrap;
 }
 
-/* MENU : Garabosse en minuscules */
 nav a {
     font-family: 'Garabosse', sans-serif !important;
     text-decoration: none;
@@ -159,7 +160,7 @@ nav a:hover {
 }
 
 /* =========================================
-   6. HERO & SECTIONS GÉNÉRALES
+   6. HERO & SECTIONS
    ========================================= */
 .hero {
     height: 100vh;
@@ -176,42 +177,42 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--rose-fluo);
+    /* FOND TRANSPARENT pour laisser voir le dégradé du body */
+    background-color: transparent;
 }
 
 /* =========================================
-   7. SECTION MANIFESTE (SPÉCIALE)
+   7. SECTION MANIFESTE (CADRE NOIR)
    ========================================= */
 
-/* La section elle-même : aligne le titre à gauche */
 #manifeste {
     align-items: flex-start; 
 }
 
-/* Le titre du manifeste : reste à gauche */
 #manifeste .titre-n2 {
     align-self: flex-start;
     margin-left: 0;
     text-align: left;
+    /* Soulignement Rose pour le manifeste */
+    border-bottom-color: #FF00FF; 
+    color: var(--noir-intense); /* Titre noir sur fond encore clair */
 }
 
-/* LE CADRE NOIR UNIQUE */
 .cadre-manifeste {
     background-color: var(--noir-intense);
-    color: var(--rose-fluo);
-    border: 2px solid var(--rose-fluo);
+    color: var(--rose-fluo); /* Texte ROSE FLUO dans le cadre noir */
+    border: 2px solid #FFFFFF; /* Bordure BLANCHE pour contraster avec le fond violet/bleu */
     padding: 3rem;
     max-width: 900px;
     width: 100%;
     margin: 2rem auto;
     text-align: center;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Paragraphes dans le cadre */
 .cadre-manifeste p {
     font-family: 'Garabosse', sans-serif;
-    font-size: 1em; /* Hérite de la taille fluide du body */
+    font-size: 1em;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     max-width: 100%;
@@ -222,34 +223,55 @@ section {
 }
 
 /* =========================================
-   8. AUTRES SECTIONS (RESET)
+   8. COULEURS DE SOULIGNEMENT (DÉGRADÉ)
    ========================================= */
-#cestquoi .texte-normal,
-#cestqui .texte-normal,
-#projets-editoriaux .texte-normal,
-#projet-politique .texte-normal,
-#contact .texte-normal {
-    color: var(--noir-intense);
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-    margin: 0 0 1.5rem 0;
-    text-align: left;
-    max-width: 800px;
+
+/* 1. Manifeste : Rose Fluo */
+#manifeste .titre-n2 { border-bottom-color: #FF00FF; }
+
+/* 2. C'est quoi : Violet Électrique */
+#cestquoi .titre-n2 { 
+    border-bottom-color: #D500FF; 
+    color: var(--noir-intense); /* Noir tant que le fond est clair */
 }
 
-.texte-normal {
-    font-family: 'Garabosse', sans-serif;
-    font-size: 1em; /* Hérite de la taille fluide du body */
-    margin-bottom: 1.5rem;
+/* 3. C'est qui : Violet Profond */
+#cestqui .titre-n2 { 
+    border-bottom-color: #AA00FF; 
+    color: var(--noir-intense);
 }
+
+/* 4. Projets éditoriaux : Indigo */
+#projets-editoriaux .titre-n2 { 
+    border-bottom-color: #8800FF; 
+    color: #FFFFFF; /* On passe en blanc car le fond commence à foncer */
+}
+
+/* 5. Projet politique : Bleu Violet */
+#projet-politique .titre-n2 { 
+    border-bottom-color: #5500FF; 
+    color: #FFFFFF;
+}
+
+/* 6. Contact : Cyan / Bleu Néon */
+#contact .titre-n2 { 
+    border-bottom-color: #00E5FF; 
+    color: #FFFFFF;
+}
+
+/* Texte normal des sections (Blanc par défaut maintenant) */
+.texte-normal, 
+#cestquoi p, #cestqui p, #projets-editoriaux p, #projet-politique p, #contact p {
+    color: #FFFFFF; /* TOUT LE TEXTE EN BLANC */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Petite ombre pour lisibilité sur dégradé */
+}
+
+/* Exception : Le texte DANS le cadre manifeste reste rose (défini plus haut) */
 
 /* =========================================
-   9. GESTION DES SVG (LUNES) - VERSION PROPRE
+   9. GESTION DES SVG (LUNES)
    ========================================= */
 
-/* Règle de base pour tous les SVG */
 img.svg-lune-hero, 
 img.svg-lune-cycle, 
 img.svg-lune-cycle-manifeste, 
@@ -260,18 +282,13 @@ img.svg-lune-manifeste {
     object-fit: contain;
 }
 
-/* --- LUNES DU HERO (Fichier NOIR) --- */
+/* --- LUNES DU HERO (Passées en BLANC pour contraster avec le dégradé) --- */
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-}
-
-/* --- CYCLE LUNAIRE (Dans le Hero - si utilisé) --- */
-.svg-lune-cycle {
-    width: 100% !important;
-    max-width: 800px !important;
-    margin: 20px auto;
+    /* Filtre pour transformer le noir du SVG en Blanc */
+    filter: brightness(0) invert(1);
 }
 
 /* --- CYCLE LUNAIRE (Dans le Manifeste - Fichier ROSE) --- */
@@ -279,6 +296,7 @@ img.svg-lune-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
+    /* Pas de filtre, le fichier est rose nativement */
 }
 
 /* --- LUNE UNIQUE (Dans le Manifeste - Fichier ROSE) --- */
@@ -286,4 +304,5 @@ img.svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
+    /* Pas de filtre, le fichier est rose nativement */
 }
