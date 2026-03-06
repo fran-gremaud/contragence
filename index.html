@@ -112,27 +112,27 @@
         </p>
     </section>
 
-<!-- ... (le reste de ton site) ... -->
-
-    <!-- SCRIPT PRISME STELLAIRE (LUNE BLANCHE COLORÉE) -->
+    <!-- SCRIPT FLASH NÉON PUR -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const lunes = document.querySelectorAll('.svg-lune-hero');
             
             lunes.forEach((lune, index) => {
-                function scintiller() {
-                    // Vitesse très erratique : de 0.1s (flash) à 0.6s
-                    const duration = (Math.random() * 0.5) + 0.1; 
+                function flash() {
+                    // Durée ultra-courte pour l'effet "Flash" (0.05s à 0.3s)
+                    const duration = (Math.random() * 0.25) + 0.05; 
                     
-                    // Applique l'animation avec inversion (Noir -> Blanc) + Couleurs
-                    lune.style.animation = `scintillement-prisme ${duration}s linear infinite`;
+                    // Pause aléatoire entre les flashes (0.1s à 0.5s)
+                    const pause = (Math.random() * 0.4) + 0.1;
                     
-                    // Relance aléatoire pour casser le rythme
-                    setTimeout(scintiller, duration * 1000);
+                    lune.style.animation = `flash-neon-pur ${duration}s linear 1`; // 1 seule fois
+                    
+                    // Relance après la pause
+                    setTimeout(flash, (duration + pause) * 1000);
                 }
                 
-                // Démarrage décalé pour désynchroniser les deux lunes
-                setTimeout(scintiller, Math.random() * 800); 
+                // Démarrage décalé
+                setTimeout(flash, Math.random() * 1000); 
             });
         });
     </script>
