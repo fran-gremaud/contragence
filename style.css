@@ -271,3 +271,33 @@ img.svg-lune-manifeste {
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
 }
+
+/* =========================================
+   10. ANIMATION CLIGNOTEMENT (LUNES)
+   ========================================= */
+
+/* On applique l'animation aux lunes du Hero */
+.svg-lune-hero {
+    width: 80px !important;
+    max-width: 80px !important;
+    margin: 0 auto;
+    filter: none; /* Reste noir */
+    
+    /* Application de l'animation : 
+       Nom | Durée | Fonction de timing | Itération | Direction 
+    */
+    animation: clignotement 0.8s infinite ease-in-out;
+}
+
+/* Définition de l'animation */
+@keyframes clignotement {
+    0% { opacity: 1; }
+    50% { opacity: 0.1; } /* Presque invisible */
+    100% { opacity: 1; }
+}
+
+/* Pour que les deux lunes ne clignotent pas en même temps, 
+   on décale la deuxième lune */
+.hero img.svg-lune-hero:nth-of-type(2) {
+    animation-delay: 0.4s; /* Décalage de la moitié de la durée */
+}
