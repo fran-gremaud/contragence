@@ -48,14 +48,20 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL
+   3. STYLE GLOBAL (TYPO FLUIDE)
    ========================================= */
 body {
     background-color: var(--rose-fluo);
     color: var(--noir-intense);
     font-family: 'Garabosse', sans-serif;
     line-height: 1.6;
-    font-size: 22px;
+    
+    /* TAILLE FLUIDE DU TEXTE :
+       Minimum 18px (lisible sur petit écran)
+       Idéal 2.2vw (s'adapte à la largeur)
+       Maximum 24px (confort sur grand écran)
+    */
+    font-size: clamp(18px, 2.2vw, 24px);
     
     /* Ligatures : Standards et Contextuelles */
     font-variant-ligatures: common-ligatures contextual;
@@ -63,23 +69,25 @@ body {
 }
 
 /* =========================================
-   4. TYPOGRAPHIE GÉNÉRALE
+   4. TYPOGRAPHIE GÉNÉRALE (FLUIDE)
    ========================================= */
 
 /* N1 : TITRE DU SITE (Hero) */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
-    font-size: 15vw;
+    /* Min: 80px, Idéal: 15vw, Max: 250px */
+    font-size: clamp(80px, 15vw, 250px);
     line-height: 0.9;
     text-transform: uppercase;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS (Alignés à gauche) */
+/* N2 : TITRES DE SECTIONS */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
-    font-size: 4rem;
+    /* Min: 2.5rem, Idéal: 4vw, Max: 5rem */
+    font-size: clamp(2.5rem, 4vw, 5rem);
     text-transform: uppercase;
     margin-bottom: 2rem;
     border-bottom: 4px solid var(--noir-intense);
@@ -91,7 +99,7 @@ body {
 /* EMPHASE (Chaloupée) */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
-    font-size: 1.4em;
+    font-size: 1.4em; /* Relatif à la taille fluide du body */
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
@@ -203,9 +211,10 @@ section {
 /* Paragraphes dans le cadre */
 .cadre-manifeste p {
     font-family: 'Garabosse', sans-serif;
-    font-size: 1em;
+    font-size: 1em; /* Hérite de la taille fluide du body */
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    max-width: 100%;
 }
 
 .cadre-manifeste p:last-child {
@@ -232,11 +241,10 @@ section {
 
 .texte-normal {
     font-family: 'Garabosse', sans-serif;
-    font-size: 1em;
+    font-size: 1em; /* Hérite de la taille fluide du body */
     margin-bottom: 1.5rem;
 }
 
-css
 /* =========================================
    9. GESTION DES SVG (LUNES) - VERSION PROPRE
    ========================================= */
@@ -257,7 +265,6 @@ img.svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-    /* Pas de filtre, le fichier est noir nativement */
 }
 
 /* --- CYCLE LUNAIRE (Dans le Hero - si utilisé) --- */
@@ -272,7 +279,6 @@ img.svg-lune-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
-    /* Pas de filtre, le fichier est rose nativement (#FF00FF) */
 }
 
 /* --- LUNE UNIQUE (Dans le Manifeste - Fichier ROSE) --- */
@@ -280,4 +286,4 @@ img.svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
-    /* Pas de filtre, le fichier est rose nativement (#FF00FF) */
+}
