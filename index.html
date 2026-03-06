@@ -111,6 +111,42 @@
             <strong>Signal / Tel :</strong> +41 XX XXX XX XX
         </p>
     </section>
+<!-- ... tout ton contenu ... -->
+
+    <!-- SCRIPT POUR CLIGNOTEMENT ALÉATOIRE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lunes = document.querySelectorAll('.svg-lune-hero');
+            
+            lunes.forEach(lune => {
+                function randomBlink() {
+                    // Durée aléatoire entre 0.2s (très rapide) et 0.8s
+                    const duration = (Math.random() * 0.6) + 0.2; 
+                    // Temps d'attente avant le prochain cycle
+                    const delay = Math.random() * 0.5; 
+                    
+                    lune.style.animation = 'none'; // Reset
+                    lune.offsetHeight; /* Trigger reflow (astuce CSS) */
+                    
+                    // On applique une nouvelle animation avec des valeurs aléatoires
+                    // Note: Pour un vrai aléatoire complexe, on simule ici avec des classes ou inline styles
+                    // Mais pour faire simple et efficace, on va utiliser une classe CSS avec des variables ou juste relancer l'anim
+                    
+                    // Méthode simple : On change la durée de l'animation à la volée
+                    lune.style.animationDuration = duration + 's';
+                    lune.style.animationDelay = delay + 's';
+                    lune.style.animationName = 'clignotement';
+                    lune.style.animationIterationCount = '1'; // Une fois
+                    
+                    // On relance la fonction quand l'anim est finie
+                    setTimeout(randomBlink, duration * 1000);
+                }
+                
+                // Lancer le premier clignotement
+                randomBlink();
+            });
+        });
+    </script>
 
 </body>
 </html>
