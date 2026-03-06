@@ -271,30 +271,49 @@ img.svg-lune-manifeste {
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
 }
-
 /* =========================================
-   10. ANIMATION "SIRIUS" (LUNES)
+   10. ANIMATION "NÉON SIRIUS" (PLUS LENT & COLORÉ)
    ========================================= */
 
-/* Animation de base : très rapide, saccadée */
-@keyframes scintillement-sirius {
-    0% { opacity: 1; transform: scale(1); filter: hue-rotate(0deg) brightness(1); }
-    20% { opacity: 0.2; transform: scale(0.9); filter: hue-rotate(45deg) brightness(1.2); } /* Bleu/Blanc */
-    40% { opacity: 1; transform: scale(1.1); filter: hue-rotate(-20deg) brightness(0.8); } /* Rouge/Orange */
-    60% { opacity: 0.4; transform: scale(0.95); filter: hue-rotate(0deg) brightness(1.5); }
-    80% { opacity: 1; transform: scale(1); filter: hue-rotate(10deg) brightness(1); }
-    100% { opacity: 0.1; transform: scale(0.8); filter: hue-rotate(-45deg) brightness(0.5); }
+@keyframes scintillement-neon {
+    0% { 
+        opacity: 1; 
+        transform: scale(1); 
+        filter: hue-rotate(0deg) saturate(1) brightness(1) drop-shadow(0 0 0px transparent); 
+    }
+    25% { 
+        opacity: 0.3; 
+        transform: scale(0.85); 
+        filter: hue-rotate(90deg) saturate(5) brightness(1.5) drop-shadow(0 0 5px cyan); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.15); 
+        filter: hue-rotate(180deg) saturate(8) brightness(1.2) drop-shadow(0 0 15px magenta); 
+    }
+    75% { 
+        opacity: 0.5; 
+        transform: scale(0.9); 
+        filter: hue-rotate(270deg) saturate(4) brightness(1.8) drop-shadow(0 0 8px violet); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1); 
+        filter: hue-rotate(360deg) saturate(1) brightness(1) drop-shadow(0 0 0px transparent); 
+    }
 }
 
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-    filter: none; /* Garde le noir de base, le JS va ajouter les couleurs */
     
-    /* L'animation sera pilotée par le JS pour la durée */
-    animation-name: scintillement-sirius;
-    animation-timing-function: steps(2, start); /* Effet saccadé, pas de fondu */
+    /* Animation de base */
+    animation-name: scintillement-neon;
+    animation-timing-function: ease-in-out; /* Un peu plus fluide pour voir les couleurs */
     animation-iteration-count: infinite;
     transform-origin: center;
+    
+    /* On garde le noir de base, le filtre de l'animation prendra le dessus */
+    filter: none; 
 }
