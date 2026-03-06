@@ -112,32 +112,27 @@
         </p>
     </section>
 
-
-    <!-- SCRIPT EFFET SIRIUS (CLIGNOTEMENT ERRATIQUE + COULEURS) -->
+    <!-- SCRIPT EFFET NÉON SIRIUS (COLORÉ & RYTHMÉ) -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const lunes = document.querySelectorAll('.svg-lune-hero');
             
             lunes.forEach(lune => {
                 function scintiller() {
-                    // Durée ultra-courte et aléatoire (entre 0.05s et 0.2s) -> Très rapide
-                    const duration = (Math.random() * 0.15) + 0.05; 
+                    // Vitesse aléatoire : entre 0.3s (rapide) et 0.9s (lent)
+                    // Beaucoup plus lisible que avant !
+                    const duration = (Math.random() * 0.6) + 0.3; 
                     
-                    // On applique l'animation avec cette durée aléatoire
                     lune.style.animationDuration = duration + 's';
                     
-                    // On relance immédiatement après pour recalculer une nouvelle vitesse
-                    // Cela crée une suite de clignotements jamais identiques
+                    // Relance pour varier la vitesse à chaque cycle
                     setTimeout(scintiller, duration * 1000);
                 }
                 
-                // Lancement
-                scintiller();
+                // Lancement avec un petit délai aléatoire pour ne pas qu'elles partent en même temps
+                setTimeout(scintiller, Math.random() * 500);
             });
         });
     </script>
-</body>
-</html>
-
 </body>
 </html>
