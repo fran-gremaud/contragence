@@ -112,29 +112,29 @@
         </p>
     </section>
 
- <!-- SCRIPT CHAOS STELLAIRE -->
+<!-- ... (le reste de ton site) ... -->
+
+    <!-- SCRIPT PRISME STELLAIRE (LUNE BLANCHE COLORÉE) -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const lunes = document.querySelectorAll('.svg-lune-hero');
             
             lunes.forEach((lune, index) => {
                 function scintiller() {
-                    // Vitesse ultra-aléatoire : de 0.1s (flash) à 0.8s (pulse)
-                    const duration = (Math.random() * 0.7) + 0.1; 
+                    // Vitesse très erratique : de 0.1s (flash) à 0.6s
+                    const duration = (Math.random() * 0.5) + 0.1; 
                     
-                    // On applique l'animation avec cette durée unique
-                    lune.style.animation = `scintillement-sale ${duration}s linear infinite`;
+                    // Applique l'animation avec inversion (Noir -> Blanc) + Couleurs
+                    lune.style.animation = `scintillement-prisme ${duration}s linear infinite`;
                     
-                    // On relance avec une NOUVELLE durée après ce cycle
-                    // Cela crée des suites de clignotements imprévisibles
+                    // Relance aléatoire pour casser le rythme
                     setTimeout(scintiller, duration * 1000);
                 }
                 
-                // Démarrage décalé et aléatoire
-                setTimeout(scintiller, Math.random() * 1000); 
+                // Démarrage décalé pour désynchroniser les deux lunes
+                setTimeout(scintiller, Math.random() * 800); 
             });
         });
     </script>
 </body>
-</html>
 </html>
