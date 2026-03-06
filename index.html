@@ -112,25 +112,30 @@
         </p>
     </section>
 
-    <!-- SCRIPT EFFET NÉON SIRIUS (COLORÉ & RYTHMÉ) -->
+<!-- SCRIPT SYSTÈME BINAIRE (DEUX LUNES INDÉPENDANTES) -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const lunes = document.querySelectorAll('.svg-lune-hero');
             
-            lunes.forEach(lune => {
+            lunes.forEach((lune, index) => {
                 function scintiller() {
-                    // Vitesse aléatoire : entre 0.3s (rapide) et 0.9s (lent)
-                    // Beaucoup plus lisible que avant !
-                    const duration = (Math.random() * 0.6) + 0.3; 
+                    // Chaque lune a sa propre vitesse aléatoire
+                    // Lune 1 (index 0) : plutôt lent (0.4s à 1s)
+                    // Lune 2 (index 1) : plutôt rapide (0.2s à 0.6s)
+                    const minSpeed = index === 0 ? 0.4 : 0.2;
+                    const maxSpeed = index === 0 ? 1.0 : 0.6;
                     
-                    lune.style.animationDuration = duration + 's';
+                    const duration = (Math.random() * (maxSpeed - minSpeed)) + minSpeed;
                     
-                    // Relance pour varier la vitesse à chaque cycle
+                    // Chaque lune a aussi son propre décalage de couleur de départ (optionnel, géré par l'anim CSS)
+                    lune.style.animation = `scintillement-neon ${duration}s ease-in-out infinite`;
+                    
+                    // On relance avec une NOUVELLE vitesse à chaque cycle pour l'effet erratique
                     setTimeout(scintiller, duration * 1000);
                 }
                 
-                // Lancement avec un petit délai aléatoire pour ne pas qu'elles partent en même temps
-                setTimeout(scintiller, Math.random() * 500);
+                // Démarrage décalé pour qu'elles ne commencent pas ensemble
+                setTimeout(scintiller, index * 300); 
             });
         });
     </script>
