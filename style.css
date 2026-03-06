@@ -272,14 +272,49 @@ img.svg-lune-manifeste {
     margin: 2rem auto 0 auto;
 }
 /* =========================================
-   10. ANIMATION "NÉON SIRIUS" (POUR DEUX LUNES)
+   10. ANIMATION "DIRTY STAR" (BRUT & COLORÉ)
    ========================================= */
 
-@keyframes scintillement-neon {
-    0% { opacity: 1; transform: scale(1); filter: hue-rotate(0deg) saturate(1) brightness(1); }
-    30% { opacity: 0.2; transform: scale(0.8); filter: hue-rotate(90deg) saturate(5) brightness(1.5); }
-    60% { opacity: 1; transform: scale(1.2); filter: hue-rotate(180deg) saturate(8) brightness(1.2); }
-    100% { opacity: 0.4; transform: scale(0.9); filter: hue-rotate(270deg) saturate(4) brightness(1.8); }
+@keyframes scintillement-sale {
+    0% { 
+        opacity: 1; 
+        transform: scale(1) translate(0, 0); 
+        /* BLANC PUR + Teinte de base */
+        filter: brightness(1) hue-rotate(0deg) saturate(0); 
+    }
+    15% { 
+        opacity: 0.1; 
+        transform: scale(0.7) translate(2px, -2px); 
+        filter: brightness(0) hue-rotate(45deg); 
+    }
+    30% { 
+        opacity: 1; 
+        transform: scale(1.3) translate(-2px, 2px); 
+        /* BLANC ULTRA LUMINEUX + CYAN/VERT */
+        filter: brightness(5) hue-rotate(160deg) saturate(10); 
+    }
+    45% { 
+        opacity: 0.4; 
+        transform: scale(0.9) translate(-1px, 1px); 
+        filter: brightness(2) hue-rotate(220deg); 
+    }
+    60% { 
+        opacity: 1; 
+        transform: scale(1.1) translate(2px, 2px); 
+        /* BLANC + ROSE/MAGENTA */
+        filter: brightness(4) hue-rotate(300deg) saturate(8); 
+    }
+    80% { 
+        opacity: 0.2; 
+        transform: scale(0.8) translate(1px, -1px); 
+        filter: brightness(0) hue-rotate(0deg); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translate(0, 0); 
+        /* Retour au noir de base */
+        filter: brightness(1) hue-rotate(0deg) saturate(0); 
+    }
 }
 
 .svg-lune-hero {
@@ -288,6 +323,7 @@ img.svg-lune-manifeste {
     margin: 0 auto;
     filter: none; /* Noir par défaut */
     
-    /* L'animation sera injectée par le JS individuellement */
+    /* On laisse le JS gérer la durée et le lancement */
     transform-origin: center;
+    will-change: transform, filter, opacity; /* Optimisation perf */
 }
