@@ -236,6 +236,7 @@ section {
     margin-bottom: 1.5rem;
 }
 
+css
 /* =========================================
    9. GESTION DES SVG (LUNES) - VERSION PROPRE
    ========================================= */
@@ -280,4 +281,3 @@ img.svg-lune-manifeste {
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
     /* Pas de filtre, le fichier est rose nativement (#FF00FF) */
-}
