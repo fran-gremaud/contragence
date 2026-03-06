@@ -46,7 +46,7 @@ html {
 }
 
 /* =========================================
-   3. STYLE GLOBAL (FOND DÉGRADÉ + TEXTE BLANC)
+   3. STYLE GLOBAL (FOND DÉGRADÉ)
    ========================================= */
 body {
     /* DÉGRADÉ SPATIAL : Du Rose vers le Bleu Nuit */
@@ -60,7 +60,7 @@ body {
     
     min-height: 100vh;
     
-    /* TEXTE BLANC : Indispensable pour la lisibilité sur le fond sombre du bas */
+    /* TEXTE BLANC PAR DÉFAUT (pour la lisibilité sur le bas sombre) */
     color: var(--blanc);
     
     font-family: 'Garabosse', sans-serif;
@@ -75,10 +75,10 @@ body {
    4. TYPOGRAPHIE
    ========================================= */
 
-/* N1 : TITRE DU SITE (Hero) - En Blanc pour contraster */
+/* N1 : TITRE DU SITE (Hero) - ON GARDE NOIR POUR L'IMPACT */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
-    color: var(--noir-intense); /* On garde le noir ici car le fond est encore rose vif */
+    color: var(--noir-intense); /* NOIR sur le rose vif = Impact Max */
     font-size: clamp(80px, 15vw, 250px);
     line-height: 0.9;
     text-transform: uppercase;
@@ -86,23 +86,27 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS - En Blanc */
+/* N2 : TITRES DE SECTIONS - PASSÉS EN BLANC + SOULIGNEMENT BLANC FINI */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
-    color: var(--noir-intense); /* Noir pour contraster avec le rose/violet clair du haut */
+    color: var(--blanc); /* BLANC pour contraster avec le dégradé */
     font-size: clamp(2.5rem, 4vw, 5rem);
     text-transform: uppercase;
     margin-bottom: 2rem;
-    border-bottom: 4px solid; /* La couleur sera définie plus bas par section */
-    display: inline-block;
+    
+    /* SOULIGNEMENT BLANC, ÉPAISSEUR 4px, LARGEUR AUTO (juste sous le texte) */
+    border-bottom: 4px solid var(--blanc);
+    display: inline-block; /* Garantit que le trait ne dépasse pas du texte */
+    width: fit-content; /* Sécurité supplémentaire pour coller au texte */
+    
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* EMPHASE (Chaloupée) - En Blanc ou Noir selon contraste, ici Blanc */
+/* EMPHASE (Chaloupée) - PASSÉE EN NOIR (pour contraster avec le rose du haut) */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
-    color: var(--noir-intense);
+    color: var(--noir-intense); /* Noir sur rose = lisible */
     font-size: 1.4em;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
@@ -177,7 +181,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* FOND TRANSPARENT pour laisser voir le dégradé du body */
     background-color: transparent;
 }
 
@@ -193,15 +196,13 @@ section {
     align-self: flex-start;
     margin-left: 0;
     text-align: left;
-    /* Soulignement Rose pour le manifeste */
-    border-bottom-color: #FF00FF; 
-    color: var(--noir-intense); /* Titre noir sur fond encore clair */
+    /* Le soulignement blanc est déjà géré dans .titre-n2 */
 }
 
 .cadre-manifeste {
     background-color: var(--noir-intense);
     color: var(--rose-fluo); /* Texte ROSE FLUO dans le cadre noir */
-    border: 2px solid #FFFFFF; /* Bordure BLANCHE pour contraster avec le fond violet/bleu */
+    border: 2px solid #FFFFFF; /* Bordure BLANCHE */
     padding: 3rem;
     max-width: 900px;
     width: 100%;
@@ -223,50 +224,16 @@ section {
 }
 
 /* =========================================
-   8. COULEURS DE SOULIGNEMENT (DÉGRADÉ)
+   8. TEXTE DES SECTIONS (BLANC + OMBRE)
    ========================================= */
 
-/* 1. Manifeste : Rose Fluo */
-#manifeste .titre-n2 { border-bottom-color: #FF00FF; }
-
-/* 2. C'est quoi : Violet Électrique */
-#cestquoi .titre-n2 { 
-    border-bottom-color: #D500FF; 
-    color: var(--noir-intense); /* Noir tant que le fond est clair */
-}
-
-/* 3. C'est qui : Violet Profond */
-#cestqui .titre-n2 { 
-    border-bottom-color: #AA00FF; 
-    color: var(--noir-intense);
-}
-
-/* 4. Projets éditoriaux : Indigo */
-#projets-editoriaux .titre-n2 { 
-    border-bottom-color: #8800FF; 
-    color: #FFFFFF; /* On passe en blanc car le fond commence à foncer */
-}
-
-/* 5. Projet politique : Bleu Violet */
-#projet-politique .titre-n2 { 
-    border-bottom-color: #5500FF; 
-    color: #FFFFFF;
-}
-
-/* 6. Contact : Cyan / Bleu Néon */
-#contact .titre-n2 { 
-    border-bottom-color: #00E5FF; 
-    color: #FFFFFF;
-}
-
-/* Texte normal des sections (Blanc par défaut maintenant) */
+/* Tout le texte des sections (sauf manifeste qui a sa propre règle) passe en blanc */
 .texte-normal, 
 #cestquoi p, #cestqui p, #projets-editoriaux p, #projet-politique p, #contact p {
-    color: #FFFFFF; /* TOUT LE TEXTE EN BLANC */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Petite ombre pour lisibilité sur dégradé */
+    color: #FFFFFF;
+    /* Petite ombre portée pour détacher du dégradé si nécessaire */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
-
-/* Exception : Le texte DANS le cadre manifeste reste rose (défini plus haut) */
 
 /* =========================================
    9. GESTION DES SVG (LUNES)
@@ -282,13 +249,13 @@ img.svg-lune-manifeste {
     object-fit: contain;
 }
 
-/* --- LUNES DU HERO (Passées en BLANC pour contraster avec le dégradé) --- */
+/* --- LUNES DU HERO (RESTENT NOIRES POUR L'IMPACT SUR LE ROSE) --- */
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-    /* Filtre pour transformer le noir du SVG en Blanc */
-    filter: brightness(0) invert(1);
+    /* On retire le filtre blanc pour garder le noir */
+    filter: none; 
 }
 
 /* --- CYCLE LUNAIRE (Dans le Manifeste - Fichier ROSE) --- */
@@ -296,7 +263,6 @@ img.svg-lune-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
-    /* Pas de filtre, le fichier est rose nativement */
 }
 
 /* --- LUNE UNIQUE (Dans le Manifeste - Fichier ROSE) --- */
@@ -304,5 +270,4 @@ img.svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
-    /* Pas de filtre, le fichier est rose nativement */
 }
