@@ -111,32 +111,6 @@
             <strong>Signal / Tel :</strong> +41 XX XXX XX XX
         </p>
     </section>
-<!-- ... (le reste de ton site) ... -->
 
-    <!-- SCRIPT VARIATEUR DE VITESSE (ROBUSTE) -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const lunes = document.querySelectorAll('.svg-lune-hero');
-            
-            lunes.forEach((lune, index) => {
-                function changerVitesse() {
-                    // Vitesse aléatoire entre 0.2s (très rapide) et 1.5s (lent)
-                    const nouvelleVitesse = (Math.random() * 1.3) + 0.2;
-                    
-                    // Applique la nouvelle durée à l'animation en cours
-                    lune.style.animationDuration = nouvelleVitesse + 's';
-                    
-                    // Optionnel : changer légèrement le délai pour désynchroniser
-                    lune.style.animationDelay = (Math.random() * 0.5) + 's';
-
-                    // On rappelle la fonction dans 1 à 3 secondes pour changer encore la vitesse
-                    setTimeout(changerVitesse, (Math.random() * 2000) + 1000);
-                }
-                
-                // Lancement initial
-                changerVitesse();
-            });
-        });
-    </script>
 </body>
 </html>
