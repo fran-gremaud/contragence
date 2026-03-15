@@ -277,14 +277,14 @@ img.svg-lune-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
-    /* filter: brightness(0) invert(1); /* Décommentez si vous voulez les lunes en blanc pur */
+    filter: brightness(0) invert(1); /* Décommentez si vous voulez les lunes en blanc pur */
 }
 
 .svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
-    /* filter: brightness(0) invert(1); /* Décommentez si vous voulez les lunes en blanc pur */
+    filter: brightness(0) invert(1); /* Décommentez si vous voulez les lunes en blanc pur */
 }/* =========================================
    1. DÉCLARATION DES POLICES
    ========================================= */
