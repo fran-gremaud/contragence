@@ -240,7 +240,6 @@ section {
    ========================================= */
 
 img.svg-lune-hero, 
-img.svg-lune-cycle, 
 img.svg-lune-cycle-manifeste, 
 img.svg-lune-manifeste {
     display: block;
@@ -270,52 +269,4 @@ img.svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
-}
-/* =========================================
-   10. ANIMATION "INFINITE NEON" (ROBUSTE)
-   ========================================= */
-
-@keyframes neon-cycle {
-    0% {
-        opacity: 0.2;
-        transform: scale(0.9);
-        /* Couleur 1 : Cyan */
-        filter: invert(1) brightness(2) hue-rotate(160deg) saturate(5);
-    }
-    25% {
-        opacity: 1;
-        transform: scale(1.2);
-        /* Couleur 2 : Magenta */
-        filter: invert(1) brightness(4) hue-rotate(300deg) saturate(8);
-    }
-    50% {
-        opacity: 0.3;
-        transform: scale(0.8);
-        /* Couleur 3 : Vert */
-        filter: invert(1) brightness(1) hue-rotate(100deg) saturate(3);
-    }
-    75% {
-        opacity: 1;
-        transform: scale(1.3);
-        /* Couleur 4 : Rose/Rouge */
-        filter: invert(1) brightness(5) hue-rotate(340deg) saturate(10);
-    }
-    100% {
-        opacity: 0.2;
-        transform: scale(0.9);
-        /* Retour Cyan */
-        filter: invert(1) brightness(2) hue-rotate(160deg) saturate(5);
-    }
-}
-
-.svg-lune-hero {
-    width: 80px !important;
-    max-width: 80px !important;
-    margin: 0 auto;
-    
-    /* Animation de base : infinie, mais on va changer la durée via JS */
-    animation-name: neon-cycle;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    transform-origin: center;
 }
