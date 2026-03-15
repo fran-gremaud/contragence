@@ -113,5 +113,23 @@
         </p>
     </section>
 
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrollPosition = window.scrollY;
+            const heroHeight = window.innerHeight; // Hauteur de l'écran
+
+            // Si on a scrollé plus de 20% de la hauteur de l'écran
+            if (scrollPosition > heroHeight * 0.2) {
+                // On est dans la zone sombre (Violet/Noir)
+                // Le texte reste blanc (défaut CSS)
+                header.style.borderBottomColor = 'rgba(255,255,255,0.2)'; // Ligne très discrète
+            } else {
+                // On est en haut (Zone Rose Fluo)
+                // Le texte reste blanc (lisible sur rose)
+                header.style.borderBottomColor = 'rgba(255,255,255,0.6)'; // Ligne plus visible
+            }
+        });
+    </script>
 </body>
 </html>
