@@ -49,7 +49,7 @@ html {
    3. STYLE GLOBAL (FOND DÉGRADÉ VERTICAL)
    ========================================= */
 body {
-    /* DÉGRADÉ VERTICAL : Du Rose vers le Bleu Nuit */
+    /* DÉGRADÉ VERTICAL : Du Rose (Haut) vers le Bleu Nuit (Bas) */
     background: linear-gradient(180deg, 
         #FF00FF 0%,   
         #D500FF 25%,  
@@ -108,7 +108,7 @@ body {
 }
 
 /* =========================================
-   5. HEADER & MENU (TRANSPARENT + LIGNE BLANCHE)
+   5. HEADER & MENU (TRANSPARENT + DYNAMIQUE)
    ========================================= */
 header {
     position: fixed;
@@ -116,11 +116,8 @@ header {
     left: 0;
     width: 100%;
     
-    /* MODIFICATION : Fond transparent pour voir le dégradé du site */
     background-color: transparent; 
-    
-    /* Ligne blanche fine en bas */
-    border-bottom: 1px solid var(--blanc);
+    border-bottom: 1px solid rgba(255,255,255,0.3); /* Ligne blanche semi-transparente */
     
     padding: 1rem 2rem;
     z-index: 1000;
@@ -128,6 +125,9 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    
+    /* Transition douce pour le changement de couleur */
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .logo {
@@ -135,9 +135,9 @@ header {
     font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;
-    color: #FFFFFF; /* Texte blanc */
+    color: #FFFFFF; /* Couleur par défaut (changée par JS si besoin) */
     font-weight: normal;
-    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+    transition: color 0.3s ease;
 }
 
 nav ul {
@@ -150,19 +150,32 @@ nav ul {
 nav a {
     font-family: 'Garabosse', sans-serif !important;
     text-decoration: none;
-    color: #FFFFFF; /* Texte blanc */
+    color: #FFFFFF; /* Couleur par défaut */
     text-transform: lowercase;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: color 0.3s, text-decoration 0.3s;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
     padding: 0.2rem 0.5rem;
     letter-spacing: 0.5px;
 }
 
 nav a:hover {
-    color: var(--rose-fluo); /* Reste rose au survol */
     text-decoration: underline;
 }
+
+/* Classe utilitaire ajoutée par le JS quand on est dans la zone sombre */
+header.menu-sombre .logo,
+header.menu-sombre nav a {
+    color: #FFFFFF; /* Reste blanc si on veut, ou mettre une autre couleur si besoin */
+}
+
+/* Classe utilitaire ajoutée par le JS quand on est dans la zone claire (Haut) */
+/* Ici, sur le rose fluo, le blanc est déjà lisible. 
+   Si vous vouliez du NOIR en haut, ce serait ici : 
+   header.menu-clair .logo { color: #000; } 
+   Mais comme demandé, on reste en blanc pour la cohérence, 
+   le JS sert surtout si vous voulez changer la ligne de séparation.
+*/
 
 /* =========================================
    6. HERO & SECTIONS
@@ -186,7 +199,7 @@ section {
 }
 
 /* =========================================
-   7. SECTION MANIFESTE (DÉGRADÉ HORIZONTAL IDENTIQUE AU FOND)
+   7. SECTION MANIFESTE (DÉGRADÉ VERTICAL IDENTIQUE)
    ========================================= */
 
 #manifeste {
@@ -200,8 +213,8 @@ section {
 }
 
 .cadre-manifeste {
-    /* MODIFICATION : Dégradé HORIZONTAL avec les MÊMES teintes que le body */
-    background: linear-gradient(90deg, 
+    /* MODIFICATION : Dégradé VERTICAL (Rose en haut -> Noir en bas) */
+    background: linear-gradient(180deg, 
         #FF00FF 0%,   
         #D500FF 25%,  
         #AA00FF 50%,  
@@ -209,21 +222,14 @@ section {
         #1a0b2e 100%  
     );
     
-    /* MODIFICATION : Suppression de la bordure */
     border: none; 
-    
-    /* Texte en blanc */
     color: var(--blanc); 
-    
     padding: 3rem;
     max-width: 900px;
     width: 100%;
     margin: 2rem auto;
     text-align: center;
-    
-    /* Ombre portée douce pour détacher le cadre du fond de page */
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    
     border-radius: 8px;
 }
 
@@ -233,7 +239,6 @@ section {
     line-height: 1.8;
     margin-bottom: 1.5rem;
     max-width: 100%;
-    /* Ombre portée sur le texte pour lisibilité maximale */
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
@@ -242,9 +247,8 @@ section {
 }
 
 /* =========================================
-   8. TEXTE DES SECTIONS (BLANC + OMBRE)
+   8. TEXTE DES SECTIONS
    ========================================= */
-
 .texte-normal, 
 #cestquoi p, #cestqui p, #projets-editoriaux p, #projet-politique p, #contact p {
     color: #FFFFFF;
@@ -252,9 +256,8 @@ section {
 }
 
 /* =========================================
-   9. GESTION DES SVG (LUNES)
+   9. GESTION DES SVG
    ========================================= */
-
 img.svg-lune-hero, 
 img.svg-lune-cycle-manifeste, 
 img.svg-lune-manifeste {
@@ -264,7 +267,6 @@ img.svg-lune-manifeste {
     object-fit: contain;
 }
 
-/* Lune du Hero (Blanche) */
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
@@ -272,17 +274,17 @@ img.svg-lune-manifeste {
     filter: invert(1); 
 }
 
-/* Lunes du Manifeste (Blanches aussi pour matcher le texte) */
+.svg-lune-cycle-manifeste,
+.svg-lune-manifeste {
+    filter: brightness(0) invert(1); /* Force le blanc */
+}
 .svg-lune-cycle-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
-    filter: brightness(0) invert(1); /* Force le blanc */
 }
-
 .svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
     margin: 2rem auto 0 auto;
-    filter: brightness(0) invert(1); /* Force le blanc */
 }
