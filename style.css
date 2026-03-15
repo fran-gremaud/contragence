@@ -49,6 +49,270 @@ html {
    3. STYLE GLOBAL (FOND DÉGRADÉ)
    ========================================= */
 body {
+    background: linear-gradient(180deg, 
+        #FF00FF 0%,   
+        #D500FF 25%,  
+        #AA00FF 50%,  
+        #5500FF 75%,  
+        #1a0b2e 100%  
+    );
+    
+    min-height: 100vh;
+    color: var(--blanc);
+    
+    font-family: 'Garabosse', sans-serif;
+    line-height: 1.6;
+    font-size: clamp(18px, 2.2vw, 24px);
+    
+    font-variant-ligatures: common-ligatures contextual;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
+
+/* =========================================
+   4. TYPOGRAPHIE
+   ========================================= */
+
+.titre-n1 {
+    font-family: 'PubliFluor', sans-serif;
+    color: var(--blanc);
+    font-size: clamp(80px, 15vw, 250px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
+
+.titre-n2 {
+    font-family: 'PubliFluor', sans-serif;
+    color: var(--blanc);
+    font-size: clamp(2.5rem, 4vw, 5rem);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    
+    border-bottom: 4px solid var(--blanc);
+    display: inline-block;
+    width: fit-content;
+    
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
+
+.emphase {
+    font-family: 'Chaloupee', sans-serif;
+    color: var(--blanc);
+    font-size: 1.4em;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   5. HEADER & MENU (TRANSPARENT + LIGNE BLANCHE)
+   ========================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    /* MODIFICATION : Fond transparent */
+    background-color: transparent; 
+    
+    /* MODIFICATION : Ajout de la ligne blanche en bas (1px d'épaisseur) */
+    border-bottom: 1px solid var(--blanc);
+    
+    padding: 1rem 2rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: 'PubliFluor', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-family: 'Garabosse', sans-serif !important;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: lowercase;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s, text-decoration 0.3s;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+nav a:hover {
+    color: var(--rose-fluo); /* Reste rose au survol pour le rappel de la marque */
+    text-decoration: underline;
+}
+
+/* =========================================
+   6. HERO & SECTIONS
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+section {
+    min-height: 80vh;
+    padding: 6rem 2rem 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+}
+
+/* =========================================
+   7. SECTION MANIFESTE (CADRE NOIR)
+   ========================================= */
+
+#manifeste {
+    align-items: flex-start; 
+}
+
+#manifeste .titre-n2 {
+    align-self: flex-start;
+    margin-left: 0;
+    text-align: left;
+}
+
+.cadre-manifeste {
+    background-color: var(--noir-intense);
+    color: var(--rose-fluo);
+    border: 2px solid #FFFFFF;
+    padding: 3rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.cadre-manifeste p {
+    font-family: 'Garabosse', sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+
+.cadre-manifeste p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================
+   8. TEXTE DES SECTIONS (BLANC + OMBRE)
+   ========================================= */
+
+.texte-normal, 
+#cestquoi p, #cestqui p, #projets-editoriaux p, #projet-politique p, #contact p {
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* =========================================
+   9. GESTION DES SVG (LUNES)
+   ========================================= */
+
+img.svg-lune-hero, 
+img.svg-lune-cycle-manifeste, 
+img.svg-lune-manifeste {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.svg-lune-hero {
+    width: 80px !important;
+    max-width: 80px !important;
+    margin: 0 auto;
+    filter: invert(1); /* Lune blanche */
+}
+
+.svg-lune-cycle-manifeste {
+    width: 100% !important;
+    max-width: 500px !important;
+    margin: 0 auto 2rem auto;
+}
+
+.svg-lune-manifeste {
+    width: 80px !important;
+    max-width: 80px !important;
+    margin: 2rem auto 0 auto;
+}/* =========================================
+   1. DÉCLARATION DES POLICES
+   ========================================= */
+
+@font-face {
+    font-family: 'PubliFluor';
+    src: url('PubliFluorNormale.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Chaloupee';
+    src: url('Chaloupee-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Garabosse';
+    src: url('Garabosse-Perle.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================
+   2. VARIABLES
+   ========================================= */
+:root {
+    --rose-fluo: #FF00FF;
+    --noir-intense: #000000;
+    --blanc: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   3. STYLE GLOBAL (FOND DÉGRADÉ)
+   ========================================= */
+body {
     /* DÉGRADÉ SPATIAL : Du Rose vers le Bleu Nuit */
     background: linear-gradient(180deg, 
         #FF00FF 0%,   /* Rose Fluo (Haut) */
