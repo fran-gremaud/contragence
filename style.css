@@ -60,7 +60,7 @@ body {
     
     min-height: 100vh;
     
-    /* TEXTE BLANC PAR DÉFAUT (pour la lisibilité sur le bas sombre) */
+    /* TEXTE BLANC PAR DÉFAUT */
     color: var(--blanc);
     
     font-family: 'Garabosse', sans-serif;
@@ -75,10 +75,10 @@ body {
    4. TYPOGRAPHIE
    ========================================= */
 
-/* N1 : TITRE DU SITE (Hero) - ON GARDE NOIR POUR L'IMPACT */
+/* N1 : TITRE DU SITE (Hero) - DÉSORMAIS EN BLANC */
 .titre-n1 {
     font-family: 'PubliFluor', sans-serif;
-    color: var(--noir-intense); /* NOIR sur le rose vif = Impact Max */
+    color: var(--blanc); /* MODIFIÉ : Blanc pour cohérence */
     font-size: clamp(80px, 15vw, 250px);
     line-height: 0.9;
     text-transform: uppercase;
@@ -86,30 +86,32 @@ body {
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* N2 : TITRES DE SECTIONS - PASSÉS EN BLANC + SOULIGNEMENT BLANC FINI */
+/* N2 : TITRES DE SECTIONS - BLANC + SOULIGNEMENT BLANC */
 .titre-n2 {
     font-family: 'PubliFluor', sans-serif;
-    color: var(--blanc); /* BLANC pour contraster avec le dégradé */
+    color: var(--blanc);
     font-size: clamp(2.5rem, 4vw, 5rem);
     text-transform: uppercase;
     margin-bottom: 2rem;
     
-    /* SOULIGNEMENT BLANC, ÉPAISSEUR 4px, LARGEUR AUTO (juste sous le texte) */
     border-bottom: 4px solid var(--blanc);
-    display: inline-block; /* Garantit que le trait ne dépasse pas du texte */
-    width: fit-content; /* Sécurité supplémentaire pour coller au texte */
+    display: inline-block;
+    width: fit-content;
     
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
 }
 
-/* EMPHASE (Chaloupée) - PASSÉE EN NOIR (pour contraster avec le rose du haut) */
+/* EMPHASE (Chaloupée) - DÉSORMAIS EN BLANC AUSSI (Pour cohérence avec le titre) */
+/* Si vous préférez la garder en noir pour le style "manuscrit", remettez var(--noir-intense) */
 .emphase {
     font-family: 'Chaloupee', sans-serif;
-    color: var(--noir-intense); /* Noir sur rose = lisible */
+    color: var(--blanc); /* MODIFIÉ : Blanc pour cohérence globale */
     font-size: 1.4em;
     font-weight: normal;
     font-feature-settings: "liga" 1, "clig" 1, "calt" 1;
+    /* Optionnel : petite ombre si le rose est trop clair derrière */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2); 
 }
 
 /* =========================================
@@ -196,7 +198,6 @@ section {
     align-self: flex-start;
     margin-left: 0;
     text-align: left;
-    /* Le soulignement blanc est déjà géré dans .titre-n2 */
 }
 
 .cadre-manifeste {
@@ -227,11 +228,9 @@ section {
    8. TEXTE DES SECTIONS (BLANC + OMBRE)
    ========================================= */
 
-/* Tout le texte des sections (sauf manifeste qui a sa propre règle) passe en blanc */
 .texte-normal, 
 #cestquoi p, #cestqui p, #projets-editoriaux p, #projet-politique p, #contact p {
     color: #FFFFFF;
-    /* Petite ombre portée pour détacher du dégradé si nécessaire */
     text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
@@ -248,23 +247,24 @@ img.svg-lune-manifeste {
     object-fit: contain;
 }
 
-/* --- LUNES DU HERO (RESTENT NOIRES POUR L'IMPACT SUR LE ROSE) --- */
+/* --- LUNE DU HERO (PASSÉE EN BLANC) --- */
 .svg-lune-hero {
     width: 80px !important;
     max-width: 80px !important;
     margin: 0 auto;
-    /* On retire le filtre blanc pour garder le noir */
-    filter: none; 
+    /* Inverse les couleurs : le noir devient blanc, parfait sur le rose */
+    filter: invert(1); 
 }
 
-/* --- CYCLE LUNAIRE (Dans le Manifeste - Fichier ROSE) --- */
+/* --- CYCLE LUNAIRE (Dans le Manifeste - Fichier ROSE sur fond NOIR) --- */
+/* On garde tel quel car le fichier est rose et le fond du cadre est noir */
 .svg-lune-cycle-manifeste {
     width: 100% !important;
     max-width: 500px !important;
     margin: 0 auto 2rem auto;
 }
 
-/* --- LUNE UNIQUE (Dans le Manifeste - Fichier ROSE) --- */
+/* --- LUNE UNIQUE (Dans le Manifeste - Fichier ROSE sur fond NOIR) --- */
 .svg-lune-manifeste {
     width: 80px !important;
     max-width: 80px !important;
